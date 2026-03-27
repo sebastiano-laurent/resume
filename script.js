@@ -36,7 +36,7 @@ const cvData = {
       },
       {
         value: "Focus continuo",
-        text: "Qualita del rilascio, stabilita applicativa e risoluzione rapida dei problemi."
+        text: "Qualita del rilascio, stabilita applicativa e KPI tecnici [DA CONFERMARE]."
       }
     ],
     experienceLabel: "Esperienza professionale",
@@ -122,8 +122,7 @@ const cvData = {
       "Stakeholder Management",
       "Mentoring tecnico",
       "Problem solving orientato alle persone",
-      "Planning",
-      "Problem Solving"
+      "Planning"
     ],
     educationLabel: "Formazione",
     education: "Diploma di Perito Informatico\nI.I.S \"Curie – Sraffa\" – Milano\n(2012-2017)",
@@ -180,7 +179,7 @@ const cvData = {
       },
       {
         value: "Continuous focus",
-        text: "Release quality, app stability, and fast problem resolution."
+        text: "Release quality, app stability, and technical KPIs [TO BE CONFIRMED]."
       }
     ],
     experienceLabel: "Professional experience",
@@ -266,8 +265,7 @@ const cvData = {
       "Stakeholder Management",
       "Technical Mentoring",
       "Human-Centered Problem Solving",
-      "Planning",
-      "Problem Solving"
+      "Planning"
     ],
     educationLabel: "Education",
     education: "IT Technical Diploma - IS Curie Sraffa, Milan (2012-2017)",
