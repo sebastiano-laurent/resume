@@ -3,13 +3,15 @@ const cvData = {
     htmlLang: "it",
     ogLocale: "it_IT",
     location: "Milano, Italia",
-    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
+    title: "Senior Mobile Developer (iOS/Android/Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
     summary:
-      "Mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo cross-platform, con progressione da Software Developer a Team Leader in Engitel S.p.A. Forte su Flutter, integrazione REST API e delivery end-to-end, con coordinamento di team e gestione stakeholder tecnico-business.",
+      "Senior mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo mobile native e cross-platform. Progressione da Software Developer a Team Leader in Engitel S.p.A., con focus su Flutter, integrazione REST API (C#/SQL), delivery end-to-end e funzionalita come geolocalizzazione, notifiche push e integrazione pagamenti.",
     strengthsLabel: "Punti di forza",
     strengths: [
       "Leadership tecnica e delivery end-to-end: pianificazione, esecuzione, quality gate e rilascio.",
       "Flutter engineering e integrazione backend/API in contesti enterprise multi-stakeholder.",
+      "Implementazione funzionalita mobile: geolocalizzazione, notifiche push real-time, integrazione pagamenti.",
+      "Esperienza su prodotti digitali in ambito smart mobility, turismo digitale e integrazione con sistemi IoT/domotica.",
       "Accelerazione dei flussi di sviluppo con approccio pragmatico orientato a impatto e time-to-market."
     ],
     impactLabel: "Risultati e impatto",
@@ -67,6 +69,9 @@ const cvData = {
       role: "App ufficiale ATM Milano | Full Stack Developer (Mobile-Centric)",
       period: "2018-2024",
       impact: "Prodotto digitale ad ampia adozione e canale centrale per la mobilita urbana.",
+      referenceLabel: "Approfondimento (LinkedIn)",
+      referenceUrl:
+        "https://www.linkedin.com/posts/sebastianolaurent_dal-gennaio-2018-ho-intrapreso-un-viaggio-activity-7274169972212326400-lyAg",
       bullets: [
         "Rifacimento grafico e funzionale dell'app con Flutter, dalla UI alla logica backend.",
         "Integrazione sistemi esterni: titoli viaggio, pagamenti, mappe, route planning.",
@@ -75,10 +80,16 @@ const cvData = {
         "Ottimizzazione performance su dispositivi mid-range."
       ]
     },
-    mobileSkillsLabel: "Competenze - sviluppo mobile",
+    mobileSkillsLabel: "Competenze - mobile",
     mobileSkills: [
-      "Attuali: Flutter - Dart",
-      "Passate: Xamarin, Swift, Kotlin"
+      "Flutter",
+      "Dart",
+      "Xamarin",
+      "iOS",
+      "Android",
+      "Sviluppo mobile end-to-end",
+      "Geolocalizzazione",
+      "Push notifications"
     ],
     backendSkillsLabel: "Competenze - backend e API",
     backendSkills: [
@@ -115,7 +126,7 @@ const cvData = {
       "Problem Solving"
     ],
     educationLabel: "Formazione",
-    education: "Diploma di Perito Informatico - IS Curie Sraffa, Milano (2012-2017)",
+    education: "Diploma di Perito Informatico\nI.I.S \"Curie – Sraffa\" – Milano\n(2012-2017)",
     languagesLabel: "Lingue",
     languages: [
       "Italiano: Madrelingua",
@@ -136,13 +147,15 @@ const cvData = {
     htmlLang: "en",
     ogLocale: "en_US",
     location: "Milan, Italy",
-    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
+    title: "Senior Mobile Developer (iOS/Android/Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
     summary:
-      "Mobile developer with 9+ years of experience (since 2017) in cross-platform development, with progression from Software Developer to Team Leader at Engitel S.p.A. Strong in Flutter engineering, backend/API integration, and end-to-end delivery with technical-business stakeholder alignment.",
+      "Senior mobile developer with 9+ years of experience (since 2017) across native and cross-platform development. Progressed from Software Developer to Team Leader at Engitel S.p.A., with focus on Flutter engineering, REST API integration (C#/SQL), end-to-end delivery, and features such as geolocation, push notifications, and payment integrations.",
     strengthsLabel: "Core strengths",
     strengths: [
       "Technical leadership and end-to-end delivery: planning, execution, quality gates, and release support.",
       "Flutter engineering and backend/API integration in enterprise, multi-stakeholder environments.",
+      "Mobile feature delivery: geolocation, real-time push notifications, and payment integrations.",
+      "Experience across smart mobility products, digital tourism, and IoT/home automation integrations.",
       "Faster development flows through a pragmatic, impact-driven approach focused on time-to-market."
     ],
     impactLabel: "Results and impact",
@@ -200,6 +213,9 @@ const cvData = {
       role: "ATM Milan Official App | Full Stack Developer (Mobile-Centric)",
       period: "2018-2024",
       impact: "High-adoption digital product and key urban mobility service.",
+      referenceLabel: "More context (LinkedIn)",
+      referenceUrl:
+        "https://www.linkedin.com/posts/sebastianolaurent_dal-gennaio-2018-ho-intrapreso-un-viaggio-activity-7274169972212326400-lyAg",
       bullets: [
         "Led the visual and functional revamp of the app with Flutter, from UI to backend logic.",
         "Integrated external systems: ticket validation, payments, maps, route planning.",
@@ -210,8 +226,14 @@ const cvData = {
     },
     mobileSkillsLabel: "Skills - mobile",
     mobileSkills: [
-      "Current: Flutter, Dart",
-      "Past: Xamarin, Swift, Kotlin"
+      "Flutter",
+      "Dart",
+      "Xamarin",
+      "iOS",
+      "Android",
+      "End-to-End Mobile Delivery",
+      "Geolocation",
+      "Push notifications"
     ],
     backendSkillsLabel: "Skills - backend/API",
     backendSkills: [
@@ -491,6 +513,11 @@ function renderList(root, items) {
   root.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
 }
 
+function renderMobileChips(root, items) {
+  root.classList.add("mobile-chip-list");
+  root.innerHTML = items.map((item) => `<li class="mobile-chip">${item}</li>`).join("");
+}
+
 function clearAiTypingTimers() {
   aiTypingTimerIds.forEach((timerId) => window.clearTimeout(timerId));
   aiTypingTimerIds = [];
@@ -606,6 +633,11 @@ function renderProject(project) {
       <small>${project.period}</small>
       <p>${project.impact}</p>
       <ul>${project.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
+      ${
+        project.referenceUrl && project.referenceLabel
+          ? `<a class="project-reference-link" href="${project.referenceUrl}" target="_blank" rel="noreferrer noopener">${project.referenceLabel}</a>`
+          : ""
+      }
     </article>
   `;
 }
@@ -766,7 +798,7 @@ function renderCv(lang) {
   renderProject(data.project);
 
   elements.labelSkillsMobile.textContent = data.mobileSkillsLabel;
-  renderList(elements.skillsMobile, data.mobileSkills);
+  renderMobileChips(elements.skillsMobile, data.mobileSkills);
 
   elements.labelSkillsBackend.textContent = data.backendSkillsLabel;
   renderList(elements.skillsBackend, data.backendSkills);
@@ -799,28 +831,28 @@ function renderCv(lang) {
   elements.footerLangEn.textContent = data.footerLangEn;
 
   if (lang === "it") {
-    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer";
+    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer (iOS/Android/Flutter)";
     metaDescription.setAttribute(
       "content",
-      "CV professionale di Sebastiano Laurent: Senior Mobile Developer Flutter e Mobile Team Leader con esperienza su delivery, integrazione API/backend e prodotti mobile ad ampia scala."
+      "CV professionale di Sebastiano Laurent: Senior Mobile Developer (iOS/Android/Flutter) e Mobile Team Leader con esperienza su delivery end-to-end, integrazione API/backend e funzionalita mobile avanzate."
     );
     ogTitle.setAttribute(
       "content",
-      "Sebastiano Laurent - Senior Mobile Developer Flutter | Team Leader"
+      "Sebastiano Laurent - Senior Mobile Developer (iOS/Android/Flutter) | Team Leader"
     );
     ogDescription.setAttribute(
       "content",
       "Profilo mobile senior orientato a impatto, leadership tecnica e delivery end-to-end."
     );
   } else {
-    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer";
+    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer (iOS/Android/Flutter)";
     metaDescription.setAttribute(
       "content",
-      "Professional CV of Sebastiano Laurent: Senior Flutter Mobile Developer and Team Leader focused on delivery, API/backend integration, and high-scale mobile products."
+      "Professional CV of Sebastiano Laurent: Senior Mobile Developer (iOS/Android/Flutter) and Team Leader focused on end-to-end delivery, API/backend integration, and advanced mobile features."
     );
     ogTitle.setAttribute(
       "content",
-      "Sebastiano Laurent - Senior Flutter Mobile Developer | Team Leader"
+      "Sebastiano Laurent - Senior Mobile Developer (iOS/Android/Flutter) | Team Leader"
     );
     ogDescription.setAttribute(
       "content",

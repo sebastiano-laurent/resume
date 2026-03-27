@@ -530,6 +530,22 @@ h2 {
   font-size: 0.9rem;
 }
 
+.project-reference-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.52;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+
+.project-reference-link:hover,
+.project-reference-link:focus-visible {
+  opacity: 0.84;
+  text-decoration: underline;
+}
+
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -629,6 +645,12 @@ body.dark-mode .impact-item p {
   margin: 0.35rem 0 0;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+#cv-education {
+  margin: 0;
+  line-height: 1.5;
+  white-space: pre-line;
 }
 
 ul {
@@ -1053,4 +1075,65 @@ body.dark-mode .footer-btn.active {
   .hero::after {
     display: none;
   }
+}
+
+#cv-skills-mobile.mobile-chip-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.46rem;
+}
+
+#cv-skills-mobile .mobile-chip {
+  list-style: none;
+  padding: 0.28rem 0.62rem;
+  margin: 0;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  font-size: 0.79rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  color: color-mix(in srgb, var(--text) 92%, #000 8%);
+  background: color-mix(in srgb, var(--accent-soft) 42%, #ffffff 58%);
+}
+
+#cv-skills-mobile .mobile-chip:nth-child(2n) {
+  background: color-mix(in srgb, var(--accent-soft) 34%, #ffffff 66%);
+}
+
+#cv-skills-mobile .mobile-chip:nth-child(3n) {
+  background: color-mix(in srgb, var(--accent-2) 10%, #ffffff 90%);
+}
+
+#cv-skills-mobile .mobile-chip:nth-child(4n) {
+  background: color-mix(in srgb, var(--accent) 9%, #ffffff 91%);
+}
+
+#cv-skills-mobile .mobile-chip:nth-child(5n) {
+  background: color-mix(in srgb, var(--accent-2) 8%, #ffffff 92%);
+}
+
+body.dark-mode #cv-skills-mobile .mobile-chip {
+  color: #eef6ff;
+  border-color: color-mix(in srgb, var(--accent) 24%, rgba(178, 207, 238, 0.34));
+  background: color-mix(in srgb, var(--accent) 16%, rgba(20, 34, 54, 0.94));
+}
+
+body.dark-mode #cv-skills-mobile .mobile-chip:nth-child(2n) {
+  background: color-mix(in srgb, var(--accent-2) 14%, rgba(20, 34, 54, 0.94));
+}
+
+body.dark-mode #cv-skills-mobile .mobile-chip:nth-child(3n) {
+  background: color-mix(in srgb, var(--accent) 12%, rgba(22, 36, 57, 0.95));
+}
+
+body.dark-mode #cv-skills-mobile .mobile-chip:nth-child(4n) {
+  background: color-mix(in srgb, var(--accent-2) 10%, rgba(22, 36, 57, 0.95));
+}
+
+body.dark-mode #cv-skills-mobile .mobile-chip:nth-child(5n) {
+  background: color-mix(in srgb, var(--accent) 10%, rgba(22, 36, 57, 0.95));
 }
