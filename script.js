@@ -8,11 +8,9 @@ const cvData = {
       "Mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo cross-platform, con progressione da Software Developer a Team Leader in Engitel S.p.A. Forte su Flutter, integrazione REST API e delivery end-to-end, con coordinamento di team e gestione stakeholder tecnico-business.",
     strengthsLabel: "Punti di forza",
     strengths: [
-      "Flutter engineering orientato a qualita, performance e manutenibilita.",
-      "Leadership tecnica con coordinamento team e presidio della delivery.",
-      "Integrazione backend/API e sistemi esterni in contesti complessi.",
-      "Esecuzione end-to-end: analisi, sviluppo, quality gate e rilascio.",
-      "Collaborazione trasversale con stakeholder tecnici e business."
+      "Leadership tecnica e delivery end-to-end: pianificazione, esecuzione, quality gate e rilascio.",
+      "Flutter engineering e integrazione backend/API in contesti enterprise multi-stakeholder.",
+      "Accelerazione dei flussi di sviluppo con approccio pragmatico orientato a impatto e time-to-market."
     ],
     impactLabel: "Risultati e impatto",
     impact: [
@@ -102,6 +100,13 @@ const cvData = {
       "Testing",
       "Supporto al rilascio"
     ],
+    aiSkillsLabel: "AI e automazione",
+    aiSkills: [
+      "Vibe coding e sviluppo assistito da AI su task tecnici e prototipazione rapida",
+      "Uso quotidiano di AI per accelerare analisi, implementazione e refactoring",
+      "Automazione di flussi operativi ripetitivi per ridurre tempi di delivery",
+      "Strumenti principali: OpenAI, Anthropic, Gemini"
+    ],
     leadershipSkillsLabel: "Competenze - leadership e delivery",
     leadershipSkills: [
       "Leadership del team",
@@ -119,8 +124,6 @@ const cvData = {
       "Italiano: Madrelingua",
       "Inglese: B2"
     ],
-    footerInfoText: "Disponibile per opportunita come sviluppatore mobile senior e team leader mobile.",
-    footerUpdatesLabel: "Ultime novita",
     footerThemeLabel: "Aspetto",
     footerThemeLight: "Chiaro",
     footerThemeDark: "Scuro",
@@ -141,11 +144,9 @@ const cvData = {
       "Mobile developer with 9+ years of experience (since 2017) in cross-platform development, with progression from Software Developer to Team Leader at Engitel S.p.A. Strong in Flutter engineering, backend/API integration, and end-to-end delivery with technical-business stakeholder alignment.",
     strengthsLabel: "Core strengths",
     strengths: [
-      "Flutter engineering focused on quality, performance, and maintainability.",
-      "Technical leadership across planning, execution, and delivery governance.",
-      "Backend/API and external system integration in complex environments.",
-      "End-to-end execution: requirements, development, quality gates, release support.",
-      "Cross-functional collaboration with technical and business stakeholders."
+      "Technical leadership and end-to-end delivery: planning, execution, quality gates, and release support.",
+      "Flutter engineering and backend/API integration in enterprise, multi-stakeholder environments.",
+      "Faster development flows through a pragmatic, impact-driven approach focused on time-to-market."
     ],
     impactLabel: "Results and impact",
     impact: [
@@ -235,6 +236,13 @@ const cvData = {
       "Testing",
       "Release Support"
     ],
+    aiSkillsLabel: "AI and automation",
+    aiSkills: [
+      "Vibe coding and AI-assisted development for technical tasks and rapid prototyping",
+      "Daily use of AI to accelerate analysis, implementation, and refactoring",
+      "Automation of repetitive operational flows to reduce delivery time",
+      "Primary tools: OpenAI, Anthropic, Gemini"
+    ],
     leadershipSkillsLabel: "Skills - leadership/Delivery",
     leadershipSkills: [
       "Team Leadership",
@@ -252,8 +260,6 @@ const cvData = {
       "Italian: Native",
       "English: B2"
     ],
-    footerInfoText: "Open to Senior Mobile Developer and Mobile Team Leader opportunities.",
-    footerUpdatesLabel: "Latest updates",
     footerThemeLabel: "Appearance",
     footerThemeLight: "Light",
     footerThemeDark: "Dark",
@@ -285,14 +291,14 @@ const elements = {
   skillsBackend: document.getElementById("cv-skills-backend"),
   labelSkillsDevops: document.getElementById("label-skills-devops"),
   skillsDevops: document.getElementById("cv-skills-devops"),
+  labelSkillsAi: document.getElementById("label-skills-ai"),
+  skillsAi: document.getElementById("cv-skills-ai"),
   labelSkillsLeadership: document.getElementById("label-skills-leadership"),
   skillsLeadership: document.getElementById("cv-skills-leadership"),
   labelEducation: document.getElementById("label-education"),
   education: document.getElementById("cv-education"),
   labelLanguages: document.getElementById("label-languages"),
   languages: document.getElementById("cv-languages"),
-  footerInfoText: document.getElementById("footer-info-text"),
-  footerUpdatesLabel: document.getElementById("footer-link-updates"),
   footerThemeLabel: document.getElementById("footer-label-theme"),
   footerThemeLight: document.getElementById("btn-theme-light"),
   footerThemeDark: document.getElementById("btn-theme-dark"),
@@ -317,10 +323,218 @@ const profileFlip = document.getElementById("profile-flip");
 const systemDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 let impactObserver;
 let revealObserver;
+let aiTypingObserver;
 let currentThemeMode = "auto";
+let aiTypingTimerIds = [];
+
+const colorProfiles = [
+  {
+    accent: "#006fe0",
+    accent2: "#00a997",
+    accentSoft: "#cfe6ff",
+    light: ["#ffffff", "#9fd2ff", "#a8f4e6", "#ffd9a6"],
+    dark: ["#1a4e82", "#116387", "#0d5b50", "#7a4f17"],
+    washLight: ["rgba(86,186,255,0.34)", "rgba(78,238,205,0.30)", "rgba(88,132,255,0.27)", "rgba(255,173,88,0.24)"],
+    washDark: ["rgba(115,194,255,0.29)", "rgba(84,228,208,0.25)", "rgba(136,152,255,0.24)", "rgba(255,177,96,0.20)"]
+  },
+  {
+    accent: "#6b5bff",
+    accent2: "#00bfa0",
+    accentSoft: "#e1ddff",
+    light: ["#fffbff", "#cbb9ff", "#93f2df", "#ffc7de"],
+    dark: ["#3a2f7e", "#174f65", "#0c5e4a", "#7b2755"],
+    washLight: ["rgba(145,127,255,0.34)", "rgba(78,230,197,0.30)", "rgba(228,130,255,0.24)", "rgba(255,152,191,0.24)"],
+    washDark: ["rgba(150,132,255,0.30)", "rgba(88,220,198,0.24)", "rgba(201,137,255,0.24)", "rgba(255,147,189,0.20)"]
+  },
+  {
+    accent: "#0079f2",
+    accent2: "#ff7a24",
+    accentSoft: "#d2e9ff",
+    light: ["#ffffff", "#9bd8ff", "#ffd3ae", "#b9f0ff"],
+    dark: ["#18477f", "#784112", "#28597d", "#13606a"],
+    washLight: ["rgba(88,168,255,0.34)", "rgba(255,165,99,0.30)", "rgba(109,214,255,0.27)", "rgba(160,223,255,0.24)"],
+    washDark: ["rgba(110,182,255,0.29)", "rgba(255,160,93,0.24)", "rgba(107,202,255,0.24)", "rgba(114,224,237,0.20)"]
+  },
+  {
+    accent: "#0066db",
+    accent2: "#00b25f",
+    accentSoft: "#d1e7ff",
+    light: ["#ffffff", "#a7d0ff", "#c8f8cf", "#b8f2ea"],
+    dark: ["#17497e", "#0d6143", "#0d5a56", "#1e6f40"],
+    washLight: ["rgba(90,161,255,0.34)", "rgba(88,225,146,0.30)", "rgba(102,232,219,0.27)", "rgba(130,224,170,0.24)"],
+    washDark: ["rgba(112,180,255,0.29)", "rgba(96,214,154,0.24)", "rgba(101,222,212,0.24)", "rgba(137,217,157,0.20)"]
+  },
+  {
+    accent: "#8b5cf6",
+    accent2: "#ec4899",
+    accentSoft: "#efe5ff",
+    light: ["#fffaff", "#d8c1ff", "#ffc6e6", "#ffd8b2"],
+    dark: ["#40246e", "#5f1f4a", "#6d3318", "#2b4a74"],
+    washLight: ["rgba(173,118,255,0.36)", "rgba(255,118,198,0.31)", "rgba(255,174,109,0.28)", "rgba(132,180,255,0.24)"],
+    washDark: ["rgba(177,135,255,0.30)", "rgba(255,122,200,0.24)", "rgba(255,178,115,0.22)", "rgba(138,182,255,0.20)"]
+  },
+  {
+    accent: "#0ea5e9",
+    accent2: "#14b8a6",
+    accentSoft: "#d7f4ff",
+    light: ["#faffff", "#b8ecff", "#bff6ef", "#e0ffd1"],
+    dark: ["#124a6a", "#0f5b52", "#255b2d", "#1f3f66"],
+    washLight: ["rgba(96,209,255,0.35)", "rgba(95,237,219,0.30)", "rgba(171,245,124,0.24)", "rgba(127,173,255,0.24)"],
+    washDark: ["rgba(112,205,255,0.29)", "rgba(102,226,208,0.25)", "rgba(169,228,119,0.20)", "rgba(131,176,255,0.20)"]
+  },
+  {
+    accent: "#f97316",
+    accent2: "#ef4444",
+    accentSoft: "#ffe7d4",
+    light: ["#fffdf8", "#ffd2ad", "#ffc4bc", "#ffe8b5"],
+    dark: ["#6f3a10", "#6e1f27", "#6a4f19", "#2f4470"],
+    washLight: ["rgba(255,163,99,0.36)", "rgba(255,126,126,0.30)", "rgba(255,206,116,0.27)", "rgba(129,171,255,0.22)"],
+    washDark: ["rgba(255,171,108,0.30)", "rgba(255,133,133,0.24)", "rgba(255,210,122,0.22)", "rgba(138,178,255,0.18)"]
+  },
+  {
+    accent: "#10b981",
+    accent2: "#22c55e",
+    accentSoft: "#d6f9e8",
+    light: ["#f8fffb", "#bdf7d7", "#c9ffd5", "#d3f9ff"],
+    dark: ["#12543b", "#1e5d2e", "#1c5d63", "#20426e"],
+    washLight: ["rgba(90,230,166,0.35)", "rgba(129,240,120,0.30)", "rgba(120,226,255,0.25)", "rgba(126,171,255,0.22)"],
+    washDark: ["rgba(96,223,170,0.29)", "rgba(136,224,123,0.25)", "rgba(121,213,238,0.22)", "rgba(128,170,246,0.19)"]
+  },
+  {
+    accent: "#2563eb",
+    accent2: "#f59e0b",
+    accentSoft: "#dce8ff",
+    light: ["#fafdff", "#bdd6ff", "#ffe4b8", "#d3ebff"],
+    dark: ["#1c427a", "#6c4d12", "#1f5c77", "#2f315f"],
+    washLight: ["rgba(103,154,255,0.36)", "rgba(255,191,99,0.30)", "rgba(123,218,255,0.25)", "rgba(166,143,255,0.22)"],
+    washDark: ["rgba(114,165,255,0.30)", "rgba(243,189,103,0.24)", "rgba(118,208,240,0.22)", "rgba(170,147,250,0.19)"]
+  }
+];
+
+function applyRandomColorProfile() {
+  const profile = colorProfiles[Math.floor(Math.random() * colorProfiles.length)];
+  const rootStyle = document.documentElement.style;
+
+  rootStyle.setProperty("--accent", profile.accent);
+  rootStyle.setProperty("--accent-2", profile.accent2);
+  rootStyle.setProperty("--accent-soft", profile.accentSoft);
+
+  rootStyle.setProperty("--bg-light-a", profile.light[0]);
+  rootStyle.setProperty("--bg-light-b", profile.light[1]);
+  rootStyle.setProperty("--bg-light-c", profile.light[2]);
+  rootStyle.setProperty("--bg-light-d", profile.light[3]);
+
+  rootStyle.setProperty("--bg-dark-a", profile.dark[0]);
+  rootStyle.setProperty("--bg-dark-b", profile.dark[1]);
+  rootStyle.setProperty("--bg-dark-c", profile.dark[2]);
+  rootStyle.setProperty("--bg-dark-d", profile.dark[3]);
+
+  rootStyle.setProperty("--wash-light-a", profile.washLight[0]);
+  rootStyle.setProperty("--wash-light-b", profile.washLight[1]);
+  rootStyle.setProperty("--wash-light-c", profile.washLight[2]);
+  rootStyle.setProperty("--wash-light-d", profile.washLight[3]);
+
+  rootStyle.setProperty("--wash-dark-a", profile.washDark[0]);
+  rootStyle.setProperty("--wash-dark-b", profile.washDark[1]);
+  rootStyle.setProperty("--wash-dark-c", profile.washDark[2]);
+  rootStyle.setProperty("--wash-dark-d", profile.washDark[3]);
+}
 
 function renderList(root, items) {
   root.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function clearAiTypingTimers() {
+  aiTypingTimerIds.forEach((timerId) => window.clearTimeout(timerId));
+  aiTypingTimerIds = [];
+}
+
+function renderAiList(root, items) {
+  root.innerHTML = "";
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.className = "ai-typing";
+    span.dataset.fullText = item;
+    span.setAttribute("aria-label", item);
+    li.appendChild(span);
+    root.appendChild(li);
+  });
+}
+
+function runAiTyping() {
+  const typingSpans = Array.from(document.querySelectorAll("#cv-skills-ai .ai-typing"));
+  if (!typingSpans.length) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  clearAiTypingTimers();
+
+  typingSpans.forEach((span) => {
+    span.textContent = "";
+    span.classList.remove("is-typing");
+    if (reduceMotion) {
+      span.textContent = span.dataset.fullText || "";
+    }
+  });
+
+  if (reduceMotion) {
+    return;
+  }
+
+  typingSpans.forEach((span, lineIndex) => {
+    const fullText = span.dataset.fullText || "";
+    const lineDelay = lineIndex * 330;
+    const baseDelay = 120;
+    const charDelay = 17;
+
+    const startTimer = window.setTimeout(() => {
+      let charIndex = 0;
+      span.classList.add("is-typing");
+
+      const typeStep = () => {
+        charIndex += 1;
+        span.textContent = fullText.slice(0, charIndex);
+        if (charIndex < fullText.length) {
+          const timerId = window.setTimeout(typeStep, charDelay);
+          aiTypingTimerIds.push(timerId);
+        } else {
+          span.classList.remove("is-typing");
+        }
+      };
+
+      typeStep();
+    }, baseDelay + lineDelay);
+
+    aiTypingTimerIds.push(startTimer);
+  });
+}
+
+function initAiTyping() {
+  if (aiTypingObserver) {
+    aiTypingObserver.disconnect();
+  }
+
+  const aiCard = document.getElementById("ai-card");
+  if (!aiCard) {
+    return;
+  }
+
+  if ("IntersectionObserver" in window) {
+    aiTypingObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          runAiTyping();
+          aiTypingObserver.disconnect();
+        }
+      },
+      { threshold: 0.45 }
+    );
+    aiTypingObserver.observe(aiCard);
+  } else {
+    runAiTyping();
+  }
 }
 
 function renderExperience(experiences) {
@@ -502,6 +716,10 @@ function renderCv(lang) {
   elements.labelSkillsDevops.textContent = data.devopsSkillsLabel;
   renderList(elements.skillsDevops, data.devopsSkills);
 
+  elements.labelSkillsAi.textContent = data.aiSkillsLabel;
+  renderAiList(elements.skillsAi, data.aiSkills);
+  initAiTyping();
+
   elements.labelSkillsLeadership.textContent = data.leadershipSkillsLabel;
   renderList(elements.skillsLeadership, data.leadershipSkills);
 
@@ -511,8 +729,6 @@ function renderCv(lang) {
   elements.labelLanguages.textContent = data.languagesLabel;
   renderList(elements.languages, data.languages);
 
-  elements.footerInfoText.textContent = data.footerInfoText;
-  elements.footerUpdatesLabel.textContent = data.footerUpdatesLabel;
   elements.footerThemeLabel.textContent = data.footerThemeLabel;
   elements.footerThemeLight.textContent = data.footerThemeLight;
   elements.footerThemeDark.textContent = data.footerThemeDark;
@@ -598,6 +814,7 @@ window.addEventListener("resize", updateTopbarState);
 
 const savedLang = localStorage.getItem("cv_lang") || "it";
 const savedThemeMode = localStorage.getItem("cv_theme_mode") || "auto";
+applyRandomColorProfile();
 applyThemeMode(savedThemeMode);
 renderCv(savedLang === "en" ? "en" : "it");
 updateTopbarState();
