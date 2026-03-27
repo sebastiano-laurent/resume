@@ -3,10 +3,10 @@ const cvData = {
     htmlLang: "it",
     ogLocale: "it_IT",
     location: "Milano, Italia",
-    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Cross-Platform Delivery",
+    title: "Sviluppatore mobile senior (Flutter) | Team leader mobile | Delivery cross-platform",
     summary:
       "Mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo cross-platform, con progressione da Software Developer a Team Leader in Engitel S.p.A. Forte su Flutter, integrazione REST API e delivery end-to-end, con coordinamento di team e gestione stakeholder tecnico-business.",
-    strengthsLabel: "Core strengths",
+    strengthsLabel: "Punti di forza",
     strengths: [
       "Flutter engineering orientato a qualita, performance e manutenibilita.",
       "Leadership tecnica con coordinamento team e presidio della delivery.",
@@ -25,7 +25,7 @@ const cvData = {
       {
         value: "5 developer",
         countTo: 5,
-        suffix: " dev",
+        suffix: " sviluppatori",
         text: "Coordinamento tecnico-operativo di team mobile su pianificazione e scadenze."
       },
       {
@@ -77,38 +77,38 @@ const cvData = {
         "Ottimizzazione performance su dispositivi mid-range."
       ]
     },
-    mobileSkillsLabel: "Competenze - mobile",
+    mobileSkillsLabel: "Competenze - sviluppo mobile",
     mobileSkills: [
       "Flutter",
       "Dart",
       "Xamarin",
-      "Cross-Platform Development",
-      "Performance Optimization"
+      "Sviluppo cross-platform",
+      "Ottimizzazione performance"
     ],
-    backendSkillsLabel: "Competenze - backend/API",
+    backendSkillsLabel: "Competenze - backend e API",
     backendSkills: [
-      "REST API Integration",
+      "Integrazione REST API",
       "C#",
       "SQL",
-      "External Systems Integration",
-      "Full Stack Feature Delivery"
+      "Integrazione sistemi esterni",
+      "Delivery funzionalita full stack"
     ],
-    devopsSkillsLabel: "Competenze - tooling/DevOps",
+    devopsSkillsLabel: "Competenze - strumenti e DevOps",
     devopsSkills: [
       "Git",
       "Azure DevOps (infrastruttura CI/CD, esperienza pregressa)",
       "Google Cloud Console (rilascio API, esperienza in corso)",
       "Code Review",
       "Testing",
-      "Release Support"
+      "Supporto al rilascio"
     ],
-    leadershipSkillsLabel: "Competenze - leadership/Delivery",
+    leadershipSkillsLabel: "Competenze - leadership e delivery",
     leadershipSkills: [
-      "Team Leadership",
+      "Leadership del team",
       "Delivery Management",
       "Stakeholder Management",
       "Mentoring tecnico",
-      "Problem Solving orientato alle persone",
+      "Problem solving orientato alle persone",
       "Planning",
       "Problem Solving"
     ],
@@ -118,7 +118,19 @@ const cvData = {
     languages: [
       "Italiano: Madrelingua",
       "Inglese: B2"
-    ]
+    ],
+    footerInfoText: "Disponibile per opportunita come sviluppatore mobile senior e team leader mobile.",
+    footerUpdatesLabel: "Ultime novita",
+    footerThemeLabel: "Aspetto",
+    footerThemeLight: "Chiaro",
+    footerThemeDark: "Scuro",
+    footerThemeAuto: "Automatico",
+    footerCopy: "Copyright © 2026 Sebastiano Laurent. Tutti i diritti riservati.",
+    footerContact: "Contatti",
+    footerLinkedin: "LinkedIn",
+    footerLanguageLabel: "Lingua",
+    footerLangIt: "Italiano",
+    footerLangEn: "Inglese"
   },
   en: {
     htmlLang: "en",
@@ -239,7 +251,19 @@ const cvData = {
     languages: [
       "Italian: Native",
       "English: B2"
-    ]
+    ],
+    footerInfoText: "Open to Senior Mobile Developer and Mobile Team Leader opportunities.",
+    footerUpdatesLabel: "Latest updates",
+    footerThemeLabel: "Appearance",
+    footerThemeLight: "Light",
+    footerThemeDark: "Dark",
+    footerThemeAuto: "Auto",
+    footerCopy: "Copyright © 2026 Sebastiano Laurent. All rights reserved.",
+    footerContact: "Contact",
+    footerLinkedin: "LinkedIn",
+    footerLanguageLabel: "Language",
+    footerLangIt: "Italian",
+    footerLangEn: "English"
   }
 };
 
@@ -266,7 +290,19 @@ const elements = {
   labelEducation: document.getElementById("label-education"),
   education: document.getElementById("cv-education"),
   labelLanguages: document.getElementById("label-languages"),
-  languages: document.getElementById("cv-languages")
+  languages: document.getElementById("cv-languages"),
+  footerInfoText: document.getElementById("footer-info-text"),
+  footerUpdatesLabel: document.getElementById("footer-link-updates"),
+  footerThemeLabel: document.getElementById("footer-label-theme"),
+  footerThemeLight: document.getElementById("btn-theme-light"),
+  footerThemeDark: document.getElementById("btn-theme-dark"),
+  footerThemeAuto: document.getElementById("btn-theme-auto"),
+  footerCopy: document.getElementById("footer-copy"),
+  footerContact: document.getElementById("footer-link-contact"),
+  footerLinkedin: document.getElementById("footer-link-linkedin"),
+  footerLanguageLabel: document.getElementById("footer-label-language"),
+  footerLangIt: document.getElementById("btn-lang-it"),
+  footerLangEn: document.getElementById("btn-lang-en")
 };
 
 const langButtons = Array.from(document.querySelectorAll(".footer-btn[data-lang]"));
@@ -474,6 +510,19 @@ function renderCv(lang) {
 
   elements.labelLanguages.textContent = data.languagesLabel;
   renderList(elements.languages, data.languages);
+
+  elements.footerInfoText.textContent = data.footerInfoText;
+  elements.footerUpdatesLabel.textContent = data.footerUpdatesLabel;
+  elements.footerThemeLabel.textContent = data.footerThemeLabel;
+  elements.footerThemeLight.textContent = data.footerThemeLight;
+  elements.footerThemeDark.textContent = data.footerThemeDark;
+  elements.footerThemeAuto.textContent = data.footerThemeAuto;
+  elements.footerCopy.textContent = data.footerCopy;
+  elements.footerContact.textContent = data.footerContact;
+  elements.footerLinkedin.textContent = data.footerLinkedin;
+  elements.footerLanguageLabel.textContent = data.footerLanguageLabel;
+  elements.footerLangIt.textContent = data.footerLangIt;
+  elements.footerLangEn.textContent = data.footerLangEn;
 
   if (lang === "it") {
     titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer Flutter | Team Leader";
