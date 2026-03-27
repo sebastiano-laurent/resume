@@ -66,7 +66,7 @@ const cvData = {
     ],
     projectLabel: "Progetto di rilievo",
     project: {
-      role: "App ufficiale ATM Milano | Full Stack Developer (Mobile-Centric)",
+      role: "App ufficiale ATM Milano | Full Stack Developer",
       period: "2018-2024",
       impact: "Prodotto digitale ad ampia adozione e canale centrale per la mobilita urbana.",
       referenceLabel: "Approfondimento (LinkedIn)",
@@ -210,7 +210,7 @@ const cvData = {
     ],
     projectLabel: "Highlighted project",
     project: {
-      role: "ATM Milan Official App | Full Stack Developer (Mobile-Centric)",
+      role: "ATM Milan Official App | Full Stack Developer",
       period: "2018-2024",
       impact: "High-adoption digital product and key urban mobility service.",
       referenceLabel: "More context (LinkedIn)",
@@ -513,6 +513,12 @@ function renderList(root, items) {
   root.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
 }
 
+function withCompanyLink(text) {
+  return text.split("Engitel S.p.A.").join(
+    '<a class="stealth-link" href="https://www.engitel.com" target="_blank" rel="noreferrer">Engitel S.p.A.</a>'
+  );
+}
+
 function renderMobileChips(root, items) {
   root.classList.add("mobile-chip-list");
   root.innerHTML = items.map((item) => `<li class="mobile-chip">${item}</li>`).join("");
@@ -617,7 +623,7 @@ function renderExperience(experiences) {
   experiences.forEach((exp) => {
     const article = document.createElement("article");
     article.innerHTML = `
-      <h3>${exp.role}</h3>
+      <h3>${withCompanyLink(exp.role)}</h3>
       <small>${exp.period}</small>
       <p>${exp.impact}</p>
       <ul>${exp.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
@@ -783,7 +789,7 @@ function renderCv(lang) {
   document.documentElement.lang = data.htmlLang;
   elements.cvLocation.textContent = data.location;
   elements.cvTitle.textContent = data.title;
-  elements.cvSummary.textContent = data.summary;
+  elements.cvSummary.innerHTML = withCompanyLink(data.summary);
 
   elements.labelStrengths.textContent = data.strengthsLabel;
   renderList(elements.strengths, data.strengths);
