@@ -346,6 +346,10 @@ let aiTypingTimerIds = [];
 let topbarScrollThreshold = 120;
 let scrollTicking = false;
 let lastParallaxShift = -1;
+const a4HeightMm = 297;
+const printMarginMm = 20;
+const printSafetyMm = 18;
+const mmToPx = 96 / 25.4;
 const memoryStore = {};
 
 function storageGet(key, fallbackValue) {
@@ -926,6 +930,28 @@ function queueTopbarUpdate() {
   });
 }
 
+function setPrintScale() {
+  const cvRoot = document.getElementById("cv-root");
+  if (!cvRoot) {
+    return;
+  }
+
+  document.documentElement.style.setProperty("--print-scale", "1");
+
+  const printableHeightPx = (a4HeightMm - printMarginMm - printSafetyMm) * mmToPx;
+  const contentHeightPx = cvRoot.scrollHeight;
+  if (!contentHeightPx || contentHeightPx <= printableHeightPx) {
+    return;
+  }
+
+  const fitScale = Math.max(0.58, Math.min(1, printableHeightPx / contentHeightPx));
+  document.documentElement.style.setProperty("--print-scale", fitScale.toFixed(3));
+}
+
+function resetPrintScale() {
+  document.documentElement.style.setProperty("--print-scale", "1");
+}
+
 window.addEventListener("scroll", queueTopbarUpdate, { passive: true });
 window.addEventListener("resize", () => {
   recalculateTopbarThreshold();
@@ -962,5 +988,27 @@ if (profileFlip) {
 
   profileFlip.addEventListener("click", () => {
     profileFlip.classList.toggle("is-flipped");
+  });
+}
+
+window.addEventListener("beforeprint", setPrintScale);
+window.addEventListener("afterprint", resetPrintScale);
+
+const printMedia = window.matchMedia("print");
+if (typeof printMedia.addEventListener === "function") {
+  printMedia.addEventListener("change", (event) => {
+    if (event.matches) {
+      setPrintScale();
+    } else {
+      resetPrintScale();
+    }
+  });
+} else if (typeof printMedia.addListener === "function") {
+  printMedia.addListener((event) => {
+    if (event.matches) {
+      setPrintScale();
+    } else {
+      resetPrintScale();
+    }
   });
 }
