@@ -741,7 +741,7 @@ function renderCv(lang) {
   elements.footerLangEn.textContent = data.footerLangEn;
 
   if (lang === "it") {
-    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer Flutter | Team Leader";
+    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer";
     metaDescription.setAttribute(
       "content",
       "CV professionale di Sebastiano Laurent: Senior Mobile Developer Flutter e Mobile Team Leader con esperienza su delivery, integrazione API/backend e prodotti mobile ad ampia scala."
@@ -755,7 +755,7 @@ function renderCv(lang) {
       "Profilo mobile senior orientato a impatto, leadership tecnica e delivery end-to-end."
     );
   } else {
-    titleTag.textContent = "Sebastiano Laurent | Senior Flutter Mobile Developer | Team Leader";
+    titleTag.textContent = "Sebastiano Laurent | Senior Mobile Developer";
     metaDescription.setAttribute(
       "content",
       "Professional CV of Sebastiano Laurent: Senior Flutter Mobile Developer and Team Leader focused on delivery, API/backend integration, and high-scale mobile products."
