@@ -3,7 +3,7 @@ const cvData = {
     htmlLang: "it",
     ogLocale: "it_IT",
     location: "Milano, Italia",
-    title: "Sviluppatore mobile senior (Flutter) | Team leader mobile | Delivery cross-platform",
+    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
     summary:
       "Mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo cross-platform, con progressione da Software Developer a Team Leader in Engitel S.p.A. Forte su Flutter, integrazione REST API e delivery end-to-end, con coordinamento di team e gestione stakeholder tecnico-business.",
     strengthsLabel: "Punti di forza",
@@ -27,8 +27,8 @@ const cvData = {
         text: "Coordinamento tecnico-operativo di team mobile su pianificazione e scadenze."
       },
       {
-        value: "8+ anni",
-        countTo: 8,
+        value: "9+ anni",
+        countTo: 9,
         suffix: "+ anni",
         text: "Crescita professionale da Software Developer a Team Leader."
       },
@@ -64,7 +64,7 @@ const cvData = {
     ],
     projectLabel: "Progetto di rilievo",
     project: {
-      role: "App ufficiale ATM Milano | Full Stack Developer",
+      role: "App ufficiale ATM Milano | Full Stack Developer (Mobile-Centric)",
       period: "2018-2024",
       impact: "Prodotto digitale ad ampia adozione e canale centrale per la mobilita urbana.",
       bullets: [
@@ -77,11 +77,8 @@ const cvData = {
     },
     mobileSkillsLabel: "Competenze - sviluppo mobile",
     mobileSkills: [
-      "Flutter",
-      "Dart",
-      "Xamarin",
-      "Sviluppo cross-platform",
-      "Ottimizzazione performance"
+      "Attuali: Flutter - Dart",
+      "Passate: Xamarin, Swift, Kotlin"
     ],
     backendSkillsLabel: "Competenze - backend e API",
     backendSkills: [
@@ -89,7 +86,7 @@ const cvData = {
       "C#",
       "SQL",
       "Integrazione sistemi esterni",
-      "Delivery funzionalita full stack"
+      "Delivery full stack in contesti mobile-centric"
     ],
     devopsSkillsLabel: "Competenze - strumenti e DevOps",
     devopsSkills: [
@@ -102,9 +99,9 @@ const cvData = {
     ],
     aiSkillsLabel: "AI e automazione",
     aiSkills: [
-      "Vibe coding e sviluppo assistito da AI su task tecnici e prototipazione rapida",
-      "Uso quotidiano di AI per accelerare analisi, implementazione e refactoring",
-      "Automazione di flussi operativi ripetitivi per ridurre tempi di delivery",
+      "Adozione operativa di strumenti AI per accelerare analisi tecnica, prototipazione, refactoring e automazione task ripetitivi",
+      "Uso quotidiano dell'AI con approccio engineering-first: revisione critica degli output e validazione tecnica",
+      "Integrazione controllata dell'AI nel ciclo di sviluppo per migliorare qualita del codice e time-to-delivery",
       "Strumenti principali: OpenAI, Anthropic, Gemini"
     ],
     leadershipSkillsLabel: "Competenze - leadership e delivery",
@@ -122,7 +119,7 @@ const cvData = {
     languagesLabel: "Lingue",
     languages: [
       "Italiano: Madrelingua",
-      "Inglese: B2"
+      "Inglese: Buon livello nel parlato, comprensione completa"
     ],
     footerThemeLabel: "Aspetto",
     footerThemeLight: "Chiaro",
@@ -139,7 +136,7 @@ const cvData = {
     htmlLang: "en",
     ogLocale: "en_US",
     location: "Milan, Italy",
-    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Cross-Platform Delivery",
+    title: "Senior Mobile Developer (Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
     summary:
       "Mobile developer with 9+ years of experience (since 2017) in cross-platform development, with progression from Software Developer to Team Leader at Engitel S.p.A. Strong in Flutter engineering, backend/API integration, and end-to-end delivery with technical-business stakeholder alignment.",
     strengthsLabel: "Core strengths",
@@ -163,8 +160,8 @@ const cvData = {
         text: "Technical-operational coordination of mobile team planning and delivery."
       },
       {
-        value: "8+ years",
-        countTo: 8,
+        value: "9+ years",
+        countTo: 9,
         suffix: "+ years",
         text: "Career growth from Software Developer to Team Leader."
       },
@@ -200,7 +197,7 @@ const cvData = {
     ],
     projectLabel: "Highlighted project",
     project: {
-      role: "ATM Milan Official App | Full Stack Developer",
+      role: "ATM Milan Official App | Full Stack Developer (Mobile-Centric)",
       period: "2018-2024",
       impact: "High-adoption digital product and key urban mobility service.",
       bullets: [
@@ -213,11 +210,8 @@ const cvData = {
     },
     mobileSkillsLabel: "Skills - mobile",
     mobileSkills: [
-      "Flutter",
-      "Dart",
-      "Xamarin",
-      "Cross-Platform Development",
-      "Performance Optimization"
+      "Current: Flutter, Dart",
+      "Past: Xamarin, Swift, Kotlin"
     ],
     backendSkillsLabel: "Skills - backend/API",
     backendSkills: [
@@ -225,7 +219,7 @@ const cvData = {
       "C#",
       "SQL",
       "External Systems Integration",
-      "Full Stack Feature Delivery"
+      "Mobile-centric full stack feature delivery"
     ],
     devopsSkillsLabel: "Skills - tooling/DevOps",
     devopsSkills: [
@@ -238,9 +232,9 @@ const cvData = {
     ],
     aiSkillsLabel: "AI and automation",
     aiSkills: [
-      "Vibe coding and AI-assisted development for technical tasks and rapid prototyping",
-      "Daily use of AI to accelerate analysis, implementation, and refactoring",
-      "Automation of repetitive operational flows to reduce delivery time",
+      "Operational adoption of AI tools to accelerate technical analysis, prototyping, refactoring, and repetitive task automation",
+      "Daily AI usage with an engineering-first approach: critical review of outputs and technical validation",
+      "Controlled AI integration into the development lifecycle to improve code quality and time-to-delivery",
       "Primary tools: OpenAI, Anthropic, Gemini"
     ],
     leadershipSkillsLabel: "Skills - leadership/Delivery",
@@ -258,7 +252,7 @@ const cvData = {
     languagesLabel: "Languages",
     languages: [
       "Italian: Native",
-      "English: B2"
+      "English: Good spoken level, full comprehension"
     ],
     footerThemeLabel: "Appearance",
     footerThemeLight: "Light",
@@ -321,11 +315,36 @@ const ogLocale = document.querySelector('meta[property="og:locale"]');
 const heroSection = document.querySelector(".hero");
 const profileFlip = document.getElementById("profile-flip");
 const systemDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let impactObserver;
 let revealObserver;
 let aiTypingObserver;
 let currentThemeMode = "auto";
 let aiTypingTimerIds = [];
+let topbarScrollThreshold = 120;
+let scrollTicking = false;
+let lastParallaxShift = -1;
+const memoryStore = {};
+
+function storageGet(key, fallbackValue) {
+  try {
+    const value = window.localStorage.getItem(key);
+    if (value === null || value === undefined || value === "") {
+      return fallbackValue;
+    }
+    return value;
+  } catch {
+    return key in memoryStore ? memoryStore[key] : fallbackValue;
+  }
+}
+
+function storageSet(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    memoryStore[key] = value;
+  }
+}
 
 const colorProfiles = [
   {
@@ -411,6 +430,29 @@ const colorProfiles = [
   }
 ];
 
+const darkGradientProfiles = [
+  {
+    dark: ["#081a35", "#072844", "#0a2a2a", "#2e1f09"],
+    washDark: ["rgba(76,145,230,0.13)", "rgba(58,172,168,0.11)", "rgba(97,111,222,0.10)", "rgba(208,131,66,0.08)"]
+  },
+  {
+    dark: ["#0d1e3f", "#1f2242", "#1b2948", "#102731"],
+    washDark: ["rgba(104,136,230,0.13)", "rgba(126,108,228,0.11)", "rgba(84,176,238,0.10)", "rgba(88,199,208,0.08)"]
+  },
+  {
+    dark: ["#071f2e", "#083231", "#0d2f23", "#163622"],
+    washDark: ["rgba(66,170,205,0.12)", "rgba(62,186,164,0.11)", "rgba(93,189,121,0.10)", "rgba(122,186,140,0.08)"]
+  },
+  {
+    dark: ["#211633", "#2a1b3e", "#2b1730", "#1f213f"],
+    washDark: ["rgba(145,113,223,0.13)", "rgba(198,104,203,0.11)", "rgba(153,121,230,0.10)", "rgba(112,143,224,0.08)"]
+  },
+  {
+    dark: ["#272016", "#301f12", "#2d2411", "#1b2438"],
+    washDark: ["rgba(210,145,78,0.12)", "rgba(197,118,71,0.11)", "rgba(214,167,89,0.10)", "rgba(93,136,212,0.08)"]
+  }
+];
+
 function applyRandomColorProfile() {
   const profile = colorProfiles[Math.floor(Math.random() * colorProfiles.length)];
   const rootStyle = document.documentElement.style;
@@ -424,15 +466,20 @@ function applyRandomColorProfile() {
   rootStyle.setProperty("--bg-light-c", profile.light[2]);
   rootStyle.setProperty("--bg-light-d", profile.light[3]);
 
-  rootStyle.setProperty("--bg-dark-a", profile.dark[0]);
-  rootStyle.setProperty("--bg-dark-b", profile.dark[1]);
-  rootStyle.setProperty("--bg-dark-c", profile.dark[2]);
-  rootStyle.setProperty("--bg-dark-d", profile.dark[3]);
-
   rootStyle.setProperty("--wash-light-a", profile.washLight[0]);
   rootStyle.setProperty("--wash-light-b", profile.washLight[1]);
   rootStyle.setProperty("--wash-light-c", profile.washLight[2]);
   rootStyle.setProperty("--wash-light-d", profile.washLight[3]);
+}
+
+function applyDarkGradientProfile() {
+  const profile = darkGradientProfiles[Math.floor(Math.random() * darkGradientProfiles.length)];
+  const rootStyle = document.documentElement.style;
+
+  rootStyle.setProperty("--bg-dark-a", profile.dark[0]);
+  rootStyle.setProperty("--bg-dark-b", profile.dark[1]);
+  rootStyle.setProperty("--bg-dark-c", profile.dark[2]);
+  rootStyle.setProperty("--bg-dark-d", profile.dark[3]);
 
   rootStyle.setProperty("--wash-dark-a", profile.washDark[0]);
   rootStyle.setProperty("--wash-dark-b", profile.washDark[1]);
@@ -644,6 +691,14 @@ function initRevealAnimations() {
     element.style.setProperty("--reveal-delay", `${Math.min(index * 45, 260)}ms`);
   });
 
+  if (reducedMotionQuery.matches) {
+    if (revealObserver) {
+      revealObserver.disconnect();
+    }
+    revealElements.forEach((element) => element.classList.add("in-view"));
+    return;
+  }
+
   if (revealObserver) {
     revealObserver.disconnect();
   }
@@ -679,7 +734,10 @@ function applyThemeMode(mode) {
   const normalizedMode = mode === "dark" || mode === "light" || mode === "auto" ? mode : "auto";
   currentThemeMode = normalizedMode;
   const isDark = normalizedMode === "dark" || (normalizedMode === "auto" && systemDarkQuery.matches);
+  document.documentElement.classList.toggle("dark-mode", isDark);
+  document.documentElement.dataset.themeMode = normalizedMode;
   document.body.classList.toggle("dark-mode", isDark);
+  document.body.dataset.themeMode = normalizedMode;
   themeButtons.forEach((button) => {
     const active = button.dataset.theme === normalizedMode;
     button.classList.toggle("active", active);
@@ -772,7 +830,7 @@ function renderCv(lang) {
 
   ogLocale.setAttribute("content", data.ogLocale);
 
-  localStorage.setItem("cv_lang", lang);
+  storageSet("cv_lang", lang);
   setActiveLanguage(lang);
 }
 
@@ -786,7 +844,7 @@ themeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const mode = button.dataset.theme || "auto";
     applyThemeMode(mode);
-    localStorage.setItem("cv_theme_mode", mode);
+    storageSet("cv_theme_mode", mode);
   });
 });
 
@@ -803,22 +861,61 @@ if (typeof systemDarkQuery.addEventListener === "function") {
 }
 
 function updateTopbarState() {
-  const threshold = heroSection ? Math.max(80, heroSection.offsetHeight * 0.33) : 120;
-  document.body.classList.toggle("scrolled", window.scrollY > threshold);
-  const parallaxShift = Math.min(36, window.scrollY * 0.08);
-  document.documentElement.style.setProperty("--parallax-y", `${parallaxShift.toFixed(2)}px`);
+  const isScrolled = window.scrollY > topbarScrollThreshold;
+  document.body.classList.toggle("scrolled", isScrolled);
+
+  const disableParallax = reducedMotionQuery.matches || window.innerWidth <= 700;
+  const nextParallaxShift = disableParallax ? 0 : Math.min(36, window.scrollY * 0.08);
+  if (Math.abs(nextParallaxShift - lastParallaxShift) >= 0.2) {
+    lastParallaxShift = nextParallaxShift;
+    document.documentElement.style.setProperty("--parallax-y", `${nextParallaxShift.toFixed(2)}px`);
+  }
 }
 
-window.addEventListener("scroll", updateTopbarState, { passive: true });
-window.addEventListener("resize", updateTopbarState);
+function recalculateTopbarThreshold() {
+  topbarScrollThreshold = heroSection ? Math.max(80, heroSection.offsetHeight * 0.33) : 120;
+}
 
-const savedLang = localStorage.getItem("cv_lang") || "it";
-const savedThemeMode = localStorage.getItem("cv_theme_mode") || "auto";
+function queueTopbarUpdate() {
+  if (scrollTicking) {
+    return;
+  }
+
+  scrollTicking = true;
+  window.requestAnimationFrame(() => {
+    updateTopbarState();
+    scrollTicking = false;
+  });
+}
+
+window.addEventListener("scroll", queueTopbarUpdate, { passive: true });
+window.addEventListener("resize", () => {
+  recalculateTopbarThreshold();
+  queueTopbarUpdate();
+});
+
+const savedLang = storageGet("cv_lang", "it");
+const savedThemeMode = storageGet("cv_theme_mode", "auto");
 applyRandomColorProfile();
+applyDarkGradientProfile();
 applyThemeMode(savedThemeMode);
 renderCv(savedLang === "en" ? "en" : "it");
+recalculateTopbarThreshold();
 updateTopbarState();
 initRevealAnimations();
+
+const onReducedMotionChange = () => {
+  clearAiTypingTimers();
+  initAiTyping();
+  initRevealAnimations();
+  queueTopbarUpdate();
+};
+
+if (typeof reducedMotionQuery.addEventListener === "function") {
+  reducedMotionQuery.addEventListener("change", onReducedMotionChange);
+} else if (typeof reducedMotionQuery.addListener === "function") {
+  reducedMotionQuery.addListener(onReducedMotionChange);
+}
 
 if (profileFlip) {
   window.setTimeout(() => {
