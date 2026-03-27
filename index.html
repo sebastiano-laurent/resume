@@ -1,96 +1,113 @@
 <!doctype html>
-<html lang="it" data-theme="siena">
+<html lang="it" data-theme="aurora">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV | Sebastiano Laurent</title>
+    <title>Sebastiano Laurent | Senior Mobile Developer Flutter | Team Leader</title>
+    <meta
+      name="description"
+      content="CV professionale di Sebastiano Laurent: Senior Mobile Developer Flutter e Mobile Team Leader con esperienza su delivery, integrazione API/backend e prodotti mobile ad ampia scala."
+    />
+    <meta property="og:title" content="Sebastiano Laurent - Senior Mobile Developer Flutter | Team Leader" />
+    <meta
+      property="og:description"
+      content="Profilo mobile senior orientato a impatto, leadership tecnica e delivery end-to-end."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sebastiano-laurent.github.io/cv/" />
+    <meta property="og:locale" content="it_IT" />
+    <link rel="canonical" href="https://sebastiano-laurent.github.io/cv/" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg-shape bg-shape-a"></div>
-    <div class="bg-shape bg-shape-b"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
 
-    <header class="topbar container">
-      <div class="brand">CV Web</div>
-      <div class="controls">
-        <label>
-          Lingua
-          <select id="language-select" aria-label="Seleziona lingua CV">
-            <option value="it">Italiano</option>
-            <option value="en">English</option>
-          </select>
+    <header class="topbar wrapper">
+      <p class="brand">Sebastiano Laurent</p>
+
+      <div class="controls" role="group" aria-label="Controlli CV">
+        <label class="lang-switch" for="lang-toggle">
+          <span class="lang-code">IT</span>
+          <input id="lang-toggle" type="checkbox" aria-label="Selettore lingua IT EN" />
+          <span class="lang-slider" aria-hidden="true"></span>
+          <span class="lang-code">EN</span>
         </label>
-
-        <label>
-          Tema
-          <select id="theme-select" aria-label="Seleziona tema grafico">
-            <option value="siena">Siena</option>
-            <option value="ocean">Ocean</option>
-            <option value="graphite">Graphite</option>
-          </select>
-        </label>
-
-        <button id="print-btn" type="button">Esporta PDF</button>
       </div>
     </header>
 
-    <main class="container cv" id="cv-root">
-      <section class="hero reveal">
-        <p class="eyebrow" id="cv-location"></p>
-        <h1>Sebastiano Laurent</h1>
-        <p class="headline" id="cv-title"></p>
-        <div class="contact">
-          <a href="tel:+393381001070">+39 338 1001070</a>
-          <a href="mailto:sebastiano.laurent@outlook.com">sebastiano.laurent@outlook.com</a>
-          <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">linkedin.com/in/sebastianolaurent</a>
+    <main class="wrapper cv" id="cv-root">
+      <section class="hero card reveal">
+        <p class="location" id="cv-location"></p>
+        <div class="hero-body">
+          <h1 id="cv-name">Sebastiano Laurent</h1>
+          <p class="title" id="cv-title"></p>
+          <p class="summary" id="cv-summary"></p>
+          <div class="contacts">
+            <a href="tel:+393381001070">+39 338 1001070</a>
+            <a href="mailto:sebastiano.laurent@outlook.com">sebastiano.laurent@outlook.com</a>
+            <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">linkedin.com/in/sebastianolaurent</a>
+          </div>
         </div>
       </section>
 
       <section class="card reveal">
-        <h2 id="label-summary"></h2>
-        <p id="cv-summary"></p>
+        <h2 id="label-strengths"></h2>
+        <ul class="strengths" id="cv-strengths"></ul>
       </section>
 
-      <section class="grid-2">
+      <section class="card reveal impact-card">
+        <h2 id="label-impact"></h2>
+        <div class="impact-grid" id="cv-impact"></div>
+      </section>
+
+      <section class="layout">
         <section class="card reveal">
           <h2 id="label-experience"></h2>
           <div id="cv-experience"></div>
         </section>
 
-        <section class="stack">
+        <aside class="rail">
           <section class="card reveal">
-            <h2 id="label-skills"></h2>
-            <ul class="tag-list" id="cv-skills"></ul>
+            <h2 id="label-skills-mobile"></h2>
+            <ul id="cv-skills-mobile"></ul>
           </section>
-
           <section class="card reveal">
-            <h2 id="label-leadership"></h2>
-            <ul id="cv-leadership"></ul>
+            <h2 id="label-skills-backend"></h2>
+            <ul id="cv-skills-backend"></ul>
           </section>
-
+          <section class="card reveal">
+            <h2 id="label-skills-devops"></h2>
+            <ul id="cv-skills-devops"></ul>
+          </section>
+          <section class="card reveal">
+            <h2 id="label-skills-leadership"></h2>
+            <ul id="cv-skills-leadership"></ul>
+          </section>
           <section class="card reveal">
             <h2 id="label-education"></h2>
             <p id="cv-education"></p>
           </section>
-
           <section class="card reveal">
             <h2 id="label-languages"></h2>
             <ul id="cv-languages"></ul>
           </section>
-        </section>
+        </aside>
       </section>
 
       <section class="card reveal">
         <h2 id="label-keywords"></h2>
-        <p class="keywords" id="cv-keywords"></p>
+        <p id="cv-keywords" class="keywords"></p>
       </section>
     </main>
+
+    <button id="print-btn" class="print-fab" type="button">Esporta PDF</button>
 
     <script src="./script.js"></script>
   </body>
