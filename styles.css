@@ -528,6 +528,22 @@ body.dark-mode .footer-bar {
   gap: 0.4rem;
 }
 
+.footer-label {
+  font-size: 0.62rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 500;
+  opacity: 0.72;
+  margin: 0 0.34rem 0 0.12rem;
+  padding-right: 0.42rem;
+  border-right: 1px solid rgba(16, 33, 54, 0.14);
+}
+
+body.dark-mode .footer-label {
+  border-right-color: rgba(166, 195, 227, 0.18);
+}
+
 .footer-segment {
   padding: 0;
   border: 0;
