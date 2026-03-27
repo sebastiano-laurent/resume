@@ -29,30 +29,36 @@
   <body>
     <div class="noise-layer" aria-hidden="true"></div>
 
-    <header class="topbar wrapper">
-      <p class="brand">Sebastiano Laurent</p>
-
-      <div class="controls" role="group" aria-label="Controlli CV">
-        <label class="lang-switch" for="lang-toggle">
-          <span class="lang-code">IT</span>
-          <input id="lang-toggle" type="checkbox" aria-label="Selettore lingua IT EN" />
-          <span class="lang-slider" aria-hidden="true"></span>
-          <span class="lang-code">EN</span>
-        </label>
+    <header class="topbar">
+      <div class="wrapper topbar-inner">
+        <p class="brand">Sebastiano Laurent</p>
       </div>
     </header>
 
     <main class="wrapper cv" id="cv-root">
       <section class="hero card reveal">
-        <p class="location" id="cv-location"></p>
-        <div class="hero-body">
-          <h1 id="cv-name">Sebastiano Laurent</h1>
-          <p class="title" id="cv-title"></p>
-          <p class="summary" id="cv-summary"></p>
-          <div class="contacts">
-            <a href="tel:+393381001070">+39 338 1001070</a>
-            <a href="mailto:sebastiano.laurent@outlook.com">sebastiano.laurent@outlook.com</a>
-            <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">linkedin.com/in/sebastianolaurent</a>
+        <div class="hero-grid">
+          <button id="profile-flip" class="profile-flip" type="button" aria-label="Mostra foto o avatar">
+            <span class="profile-flip-inner">
+              <span class="profile-face profile-front">
+                <img src="./assets/user.png" alt="Foto profilo Sebastiano Laurent" />
+              </span>
+              <span class="profile-face profile-back">
+                <img src="./assets/avatar.JPG" alt="Avatar Sebastiano Laurent" />
+              </span>
+            </span>
+          </button>
+
+          <div class="hero-body">
+            <h1 id="cv-name">Sebastiano Laurent</h1>
+            <p class="title" id="cv-title"></p>
+            <p class="summary" id="cv-summary"></p>
+            <div class="contacts">
+              <span class="location" id="cv-location"></span>
+              <a href="tel:+393381001070">+39 338 1001070</a>
+              <a href="mailto:sebastiano.laurent@outlook.com">sebastiano.laurent@outlook.com</a>
+              <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">linkedin.com/in/sebastianolaurent</a>
+            </div>
           </div>
         </div>
       </section>
@@ -62,16 +68,17 @@
         <ul class="strengths" id="cv-strengths"></ul>
       </section>
 
-      <section class="card reveal impact-card">
-        <h2 id="label-impact"></h2>
-        <div class="impact-grid" id="cv-impact"></div>
-      </section>
-
       <section class="layout">
-        <section class="card reveal">
-          <h2 id="label-experience"></h2>
-          <div id="cv-experience"></div>
-        </section>
+        <div class="main-col">
+          <section class="card reveal">
+            <h2 id="label-experience"></h2>
+            <div id="cv-experience"></div>
+          </section>
+          <section class="card reveal project-box">
+            <h2 id="label-project"></h2>
+            <div id="cv-project"></div>
+          </section>
+        </div>
 
         <aside class="rail">
           <section class="card reveal">
@@ -101,13 +108,43 @@
         </aside>
       </section>
 
-      <section class="card reveal">
-        <h2 id="label-keywords"></h2>
-        <p id="cv-keywords" class="keywords"></p>
+      <section class="card reveal impact-card">
+        <h2 id="label-impact"></h2>
+        <div class="impact-grid" id="cv-impact"></div>
       </section>
     </main>
 
-    <button id="print-btn" class="print-fab" type="button">Esporta PDF</button>
+    <footer class="footer-bar">
+      <div class="wrapper footer-shell">
+        <div class="footer-row footer-row-top">
+          <p class="footer-info">
+            Open to Senior Mobile Developer and Mobile Team Leader opportunities.
+            <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">Latest updates</a>
+          </p>
+
+          <div class="footer-group footer-segment" role="group" aria-label="Appearance">
+            <button type="button" class="footer-btn" data-theme="light">Light</button>
+            <button type="button" class="footer-btn" data-theme="dark">Dark</button>
+            <button type="button" class="footer-btn" data-theme="auto">Auto</button>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-row footer-row-bottom">
+          <div class="footer-meta">
+            <span>Copyright © 2026 Sebastiano Laurent. All rights reserved.</span>
+            <a href="mailto:sebastiano.laurent@outlook.com">Contact</a>
+            <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="footer-group footer-segment" role="group" aria-label="Language">
+            <button type="button" class="footer-btn" data-lang="it">Italiano</button>
+            <button type="button" class="footer-btn" data-lang="en">English</button>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="./script.js"></script>
   </body>
