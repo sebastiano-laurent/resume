@@ -1,19 +1,29 @@
-# CV Web - Sebastiano Laurent
+# CV Workspace
 
-## Avvio in locale
+Repository per gestire CV in formato documentale e versione web pubblicabile.
+
+## Tecnologie
+- Web CV: `HTML5`, `CSS3`, `JavaScript` vanilla.
+- Hosting: `GitHub Pages`.
+- Locale: server statico con `python3 -m http.server`.
+
+## Struttura
+- `docs/`: materiali sorgente, contenuti profilo/esperienze/competenze e output finali.
+- `Web/`: CV web (markup, stile, logica e asset).
+
+## Avvio locale (CV Web)
 ```bash
-cd /Users/sebastiano/Documents/Lavoro/CV/Web
+cd Web
 python3 -m http.server 8080
 ```
-Apri [http://localhost:8080](http://localhost:8080).
+Apri `http://localhost:8080`.
 
-## Pubblicazione su GitHub Pages
-1. Commit e push dei file aggiornati sul repository.
-2. In GitHub: `Settings -> Pages`.
-3. Seleziona branch di publish (tipicamente `main`) e cartella root (`/`) o `Web/` in base al repo.
-4. Verifica URL pubblico: [https://sebastiano-laurent.github.io/cv/](https://sebastiano-laurent.github.io/cv/).
+## Pubblicazione
+1. Esegui commit e push sul repository.
+2. In GitHub vai su `Settings > Pages`.
+3. Seleziona branch e cartella di pubblicazione (`/` oppure `Web/`).
 
-## Dove modificare i contenuti principali
-- Struttura e SEO base: `/Users/sebastiano/Documents/Lavoro/CV/Web/index.html`
-- Contenuti IT/EN e sezioni CV: `/Users/sebastiano/Documents/Lavoro/CV/Web/script.js` (oggetto `cvData`)
-- Design e responsive/print: `/Users/sebastiano/Documents/Lavoro/CV/Web/styles.css`
+## File principali
+- `Web/index.html`: struttura pagina e metadati.
+- `Web/styles.css`: design, responsive e stampa.
+- `Web/script.js`: contenuti CV e logica rendering.
