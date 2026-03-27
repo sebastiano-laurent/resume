@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it" data-theme="siena">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV | Sebastiano Laurent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <header class="topbar container">
+      <div class="brand">CV Web</div>
+      <div class="controls">
+        <label>
+          Lingua
+          <select id="language-select" aria-label="Seleziona lingua CV">
+            <option value="it">Italiano</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+
+        <label>
+          Tema
+          <select id="theme-select" aria-label="Seleziona tema grafico">
+            <option value="siena">Siena</option>
+            <option value="ocean">Ocean</option>
+            <option value="graphite">Graphite</option>
+          </select>
+        </label>
+
+        <button id="print-btn" type="button">Esporta PDF</button>
+      </div>
+    </header>
+
+    <main class="container cv" id="cv-root">
+      <section class="hero reveal">
+        <p class="eyebrow" id="cv-location"></p>
+        <h1>Sebastiano Laurent</h1>
+        <p class="headline" id="cv-title"></p>
+        <div class="contact">
+          <a href="tel:+393381001070">+39 338 1001070</a>
+          <a href="mailto:sebastiano.laurent@outlook.com">sebastiano.laurent@outlook.com</a>
+          <a href="https://linkedin.com/in/sebastianolaurent" target="_blank" rel="noreferrer">linkedin.com/in/sebastianolaurent</a>
+        </div>
+      </section>
+
+      <section class="card reveal">
+        <h2 id="label-summary"></h2>
+        <p id="cv-summary"></p>
+      </section>
+
+      <section class="grid-2">
+        <section class="card reveal">
+          <h2 id="label-experience"></h2>
+          <div id="cv-experience"></div>
+        </section>
+
+        <section class="stack">
+          <section class="card reveal">
+            <h2 id="label-skills"></h2>
+            <ul class="tag-list" id="cv-skills"></ul>
+          </section>
+
+          <section class="card reveal">
+            <h2 id="label-leadership"></h2>
+            <ul id="cv-leadership"></ul>
+          </section>
+
+          <section class="card reveal">
+            <h2 id="label-education"></h2>
+            <p id="cv-education"></p>
+          </section>
+
+          <section class="card reveal">
+            <h2 id="label-languages"></h2>
+            <ul id="cv-languages"></ul>
+          </section>
+        </section>
+      </section>
+
+      <section class="card reveal">
+        <h2 id="label-keywords"></h2>
+        <p class="keywords" id="cv-keywords"></p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
