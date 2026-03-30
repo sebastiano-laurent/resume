@@ -90,8 +90,7 @@ const cvData = {
       "Android",
       "Google Play & App Store Release",
       "UI/UX Collaboration",
-      "Sviluppo mobile end-to-end",
-      "In-App Purchase"
+      "Sviluppo mobile end-to-end"
     ],
     backendSkillsLabel: "Competenze - backend e API",
     backendSkills: [
@@ -235,8 +234,7 @@ const cvData = {
       "Android",
       "Google Play & App Store Release",
       "UI/UX Collaboration",
-      "End-to-End Mobile Delivery",
-      "In-App Purchase"
+      "End-to-End Mobile Delivery"
     ],
     backendSkillsLabel: "Skills - backend/API",
     backendSkills: [
