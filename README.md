@@ -32,7 +32,7 @@ Output in `dist/`:
 1. Esegui commit e push sul repository.
 2. In GitHub vai su `Settings > Pages`.
 3. Seleziona branch e cartella di pubblicazione (`/`).
-4. URL pubblico: `https://sebastianolaurent.github.io/resume/`.
+4. URL pubblico: `https://sebastianolaurent.com/`.
 
 ## File principali
 - `index.html`: struttura pagina e metadati.
