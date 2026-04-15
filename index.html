@@ -24,13 +24,14 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="icon" type="image/png" href="./favicon.png" sizes="64x64" />
     <link rel="icon" href="./favicon.ico" sizes="any" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="./assets/fonts/Sora-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
+
     <script>
       (function () {
         try {
@@ -237,15 +238,15 @@
         <h2 id="label-impact">Risultati e impatto</h2>
         <div class="impact-grid" id="cv-impact">
           <article class="impact-item">
-            <span class="impact-value">2M+ utenti</span>
+            <span class="impact-value impact-counter" data-count-to="2" data-suffix="M+">2M+ utenti</span>
             <p>Contributo al progetto ATM Milano con oltre 2 milioni di utenti attivi.</p>
           </article>
           <article class="impact-item">
-            <span class="impact-value">5 developer</span>
+            <span class="impact-value impact-counter" data-count-to="5" data-suffix=" sviluppatori">5 developer</span>
             <p>Coordinamento tecnico-operativo di team mobile su pianificazione e scadenze.</p>
           </article>
           <article class="impact-item">
-            <span class="impact-value">9+ anni</span>
+            <span class="impact-value impact-counter" data-count-to="9" data-suffix="+ anni">9+ anni</span>
             <p>Crescita professionale da Software Developer a Team Leader.</p>
           </article>
           <article class="impact-item">
@@ -261,10 +262,10 @@
       <div class="wrapper footer-shell">
         <div class="footer-row footer-row-top">
           <div class="footer-group footer-segment" role="group" aria-label="Appearance">
-            <span id="footer-label-theme" class="footer-label"></span>
-            <button id="btn-theme-light" type="button" class="footer-btn" data-theme="light"></button>
-            <button id="btn-theme-dark" type="button" class="footer-btn" data-theme="dark"></button>
-            <button id="btn-theme-auto" type="button" class="footer-btn" data-theme="auto"></button>
+            <span id="footer-label-theme" class="footer-label">Aspetto</span>
+            <button id="btn-theme-light" type="button" class="footer-btn" data-theme="light">Chiaro</button>
+            <button id="btn-theme-dark" type="button" class="footer-btn" data-theme="dark">Scuro</button>
+            <button id="btn-theme-auto" type="button" class="footer-btn" data-theme="auto">Automatico</button>
           </div>
         </div>
 
@@ -272,13 +273,13 @@
 
         <div class="footer-row footer-row-bottom">
           <div class="footer-meta">
-            <span id="footer-copy"></span>
+            <span id="footer-copy">Copyright © 2026 Sebastiano Laurent. Tutti i diritti riservati.</span>
           </div>
 
           <div class="footer-group footer-segment" role="group" aria-label="Language">
-            <span id="footer-label-language" class="footer-label"></span>
-            <button id="btn-lang-it" type="button" class="footer-btn" data-lang="it"></button>
-            <button id="btn-lang-en" type="button" class="footer-btn" data-lang="en"></button>
+            <span id="footer-label-language" class="footer-label">Lingua</span>
+            <button id="btn-lang-it" type="button" class="footer-btn" data-lang="it">Italiano</button>
+            <button id="btn-lang-en" type="button" class="footer-btn" data-lang="en">Inglese</button>
           </div>
         </div>
       </div>
@@ -300,11 +301,11 @@
         </span>
       </button>
       <section id="a11y-panel" class="a11y-panel" aria-labelledby="a11y-title" hidden>
-        <h2 id="a11y-title"></h2>
+        <h2 id="a11y-title">Accessibilita</h2>
         <div class="a11y-actions">
           <div class="a11y-zoom-control">
             <div class="a11y-zoom-head">
-              <span id="a11y-text-zoom-label"></span>
+              <span id="a11y-text-zoom-label">Zoom testo</span>
               <span id="a11y-text-zoom-value" aria-live="polite">100%</span>
             </div>
             <input
@@ -317,11 +318,11 @@
               value="100"
             />
           </div>
-          <button id="a11y-contrast" type="button" class="a11y-action" aria-pressed="false"></button>
-          <button id="a11y-motion" type="button" class="a11y-action" aria-pressed="false"></button>
-          <button id="a11y-reading" type="button" class="a11y-action" aria-pressed="false"></button>
-          <button id="a11y-links" type="button" class="a11y-action" aria-pressed="false"></button>
-          <button id="a11y-reset" type="button" class="a11y-action a11y-action-reset"></button>
+          <button id="a11y-contrast" type="button" class="a11y-action" aria-pressed="false">Contrasto elevato</button>
+          <button id="a11y-motion" type="button" class="a11y-action" aria-pressed="false">Riduci movimento</button>
+          <button id="a11y-reading" type="button" class="a11y-action" aria-pressed="false">Modalita lettura</button>
+          <button id="a11y-links" type="button" class="a11y-action" aria-pressed="false">Sottolinea link</button>
+          <button id="a11y-reset" type="button" class="a11y-action a11y-action-reset">Ripristina preferenze</button>
         </div>
       </section>
       <p id="a11y-status" class="sr-only" aria-live="polite"></p>

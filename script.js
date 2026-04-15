@@ -402,8 +402,14 @@ const isWindowsChrome =
   /Chrome\//i.test(userAgent) &&
   !/Edg\//i.test(userAgent) &&
   !/OPR\//i.test(userAgent);
+const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(userAgent);
+const lowDeviceMemory = typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+const lowCpuCores = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+const connectionInfo = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+const prefersDataSaver = Boolean(connectionInfo && connectionInfo.saveData);
+const shouldUsePerformanceMode = isWindowsChrome || isMobileDevice || lowDeviceMemory || lowCpuCores || prefersDataSaver;
 
-if (isWindowsChrome) {
+if (shouldUsePerformanceMode) {
   document.documentElement.classList.add("performance-mode");
 }
 
@@ -1215,7 +1221,15 @@ setA11yOption("reduce-motion-force", savedReducedMotion);
 setA11yOption("reading-mode", savedReadingMode);
 setA11yOption("underline-links", savedUnderlineLinks);
 setA11yPanelOpen(false);
-renderCv(savedLang === "en" ? "en" : "it");
+if (savedLang === "en") {
+  renderCv("en");
+} else {
+  currentLang = "it";
+  setActiveLanguage("it");
+  updateA11yUiText("it");
+  initImpactCounters();
+  initAiTyping();
+}
 recalculateTopbarThreshold();
 updateTopbarState();
 initRevealAnimations();
