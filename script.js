@@ -154,7 +154,10 @@ const cvData = {
     a11yResetLabel: "Ripristina preferenze",
     a11yStateOn: "Attivo",
     a11yStateOff: "Disattivo",
-    a11yResetDone: "Preferenze accessibilita ripristinate"
+    a11yResetDone: "Preferenze accessibilita ripristinate",
+    printBlockedTitle: "Questa pagina e fatta per essere vissuta",
+    printBlockedCopy: "Stampandola perderai animazioni, colori e dettagli visivi pensati per il digitale. Se vuoi, posso inviarti una versione PDF dedicata.",
+    printBlockedNotice: "La stampa riduce colori e animazioni: meglio visualizzarla online."
   },
   en: {
     htmlLang: "en",
@@ -311,7 +314,10 @@ const cvData = {
     a11yResetLabel: "Reset preferences",
     a11yStateOn: "On",
     a11yStateOff: "Off",
-    a11yResetDone: "Accessibility preferences reset"
+    a11yResetDone: "Accessibility preferences reset",
+    printBlockedTitle: "This page is meant to be experienced",
+    printBlockedCopy: "Printing removes animations, colors, and visual details designed for digital viewing. If needed, I can share a dedicated PDF version.",
+    printBlockedNotice: "Printing reduces colors and animations: best viewed online."
   }
 };
 
@@ -363,7 +369,9 @@ const elements = {
   a11yReading: document.getElementById("a11y-reading"),
   a11yLinks: document.getElementById("a11y-links"),
   a11yReset: document.getElementById("a11y-reset"),
-  a11yStatus: document.getElementById("a11y-status")
+  a11yStatus: document.getElementById("a11y-status"),
+  printBlockedTitle: document.getElementById("print-blocked-title"),
+  printBlockedCopy: document.getElementById("print-blocked-copy")
 };
 
 const langButtons = Array.from(document.querySelectorAll(".footer-btn[data-lang]"));
@@ -391,10 +399,6 @@ let topbarScrollThreshold = 120;
 let scrollTicking = false;
 let lastParallaxShift = -1;
 let currentLang = "it";
-const a4HeightMm = 297;
-const printMarginMm = 20;
-const printSafetyMm = 18;
-const mmToPx = 96 / 25.4;
 const memoryStore = {};
 const userAgent = navigator.userAgent || "";
 const isWindowsChrome =
@@ -990,6 +994,8 @@ function renderCv(lang) {
   elements.footerLanguageLabel.textContent = data.footerLanguageLabel;
   elements.footerLangIt.textContent = data.footerLangIt;
   elements.footerLangEn.textContent = data.footerLangEn;
+  if (elements.printBlockedTitle) elements.printBlockedTitle.textContent = data.printBlockedTitle;
+  if (elements.printBlockedCopy) elements.printBlockedCopy.textContent = data.printBlockedCopy;
   updateA11yUiText(lang);
 
   if (lang === "it") {
@@ -1128,6 +1134,14 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     setA11yPanelOpen(false);
   }
+
+  const printShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "p";
+  if (printShortcut) {
+    event.preventDefault();
+    const data = cvData[currentLang] || cvData.it;
+    elements.a11yStatus.textContent = data.printBlockedNotice;
+  }
+
   if (event.altKey && event.shiftKey && event.key.toLowerCase() === "a") {
     const isExpanded = elements.a11yToggle.getAttribute("aria-expanded") === "true";
     setA11yPanelOpen(!isExpanded);
@@ -1172,28 +1186,6 @@ function queueTopbarUpdate() {
     updateTopbarState();
     scrollTicking = false;
   });
-}
-
-function setPrintScale() {
-  const cvRoot = document.getElementById("cv-root");
-  if (!cvRoot) {
-    return;
-  }
-
-  document.documentElement.style.setProperty("--print-scale", "1");
-
-  const printableHeightPx = (a4HeightMm - printMarginMm - printSafetyMm) * mmToPx;
-  const contentHeightPx = cvRoot.scrollHeight;
-  if (!contentHeightPx || contentHeightPx <= printableHeightPx) {
-    return;
-  }
-
-  const fitScale = Math.max(0.58, Math.min(1, printableHeightPx / contentHeightPx));
-  document.documentElement.style.setProperty("--print-scale", fitScale.toFixed(3));
-}
-
-function resetPrintScale() {
-  document.documentElement.style.setProperty("--print-scale", "1");
 }
 
 window.addEventListener("scroll", queueTopbarUpdate, { passive: true });
@@ -1257,24 +1249,7 @@ if (profileFlip) {
   });
 }
 
-window.addEventListener("beforeprint", setPrintScale);
-window.addEventListener("afterprint", resetPrintScale);
-
-const printMedia = typeof window.matchMedia === "function" ? window.matchMedia("print") : null;
-if (printMedia && typeof printMedia.addEventListener === "function") {
-  printMedia.addEventListener("change", (event) => {
-    if (event.matches) {
-      setPrintScale();
-    } else {
-      resetPrintScale();
-    }
-  });
-} else if (printMedia && typeof printMedia.addListener === "function") {
-  printMedia.addListener((event) => {
-    if (event.matches) {
-      setPrintScale();
-    } else {
-      resetPrintScale();
-    }
-  });
-}
+window.addEventListener("beforeprint", () => {
+  const data = cvData[currentLang] || cvData.it;
+  elements.a11yStatus.textContent = data.printBlockedNotice;
+});
