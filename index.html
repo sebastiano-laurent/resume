@@ -31,10 +31,21 @@
       type="font/woff2"
       crossorigin
     />
+    <link rel="preload" href="./assets/user.webp" as="image" type="image/webp" fetchpriority="high" />
 
     <script>
       (function () {
         try {
+          var ua = navigator.userAgent || "";
+          var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
+          var lowMemory = typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+          var lowCpu = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+          var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+          var saveData = Boolean(connection && connection.saveData);
+          if (isMobile || lowMemory || lowCpu || saveData) {
+            document.documentElement.classList.add("performance-mode");
+          }
+
           var mode = localStorage.getItem("cv_theme_mode") || "auto";
           var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
           var isDark = mode === "dark" || (mode !== "light" && prefersDark);
@@ -46,7 +57,9 @@
         } catch (_) {}
       })();
     </script>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preload" href="./styles.css" as="style" />
+    <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="./styles.css" /></noscript>
   </head>
   <body>
     <a class="skip-link" id="skip-to-content" href="#cv-root">Salta al contenuto principale</a>
