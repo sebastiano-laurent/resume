@@ -885,6 +885,13 @@ body.dark-mode .footer-bar {
   opacity: 0.82;
 }
 
+.footer-egg {
+  font-family: "Cascadia Code", "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", Menlo, Monaco, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  opacity: 0.72;
+}
+
 .footer-group {
   display: flex;
   align-items: center;

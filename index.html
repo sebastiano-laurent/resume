@@ -18,9 +18,9 @@
       content="Profilo mobile senior orientato a impatto, leadership tecnica, backend integration e delivery end-to-end."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sebastianolaurent.github.io/resume/" />
+    <meta property="og:url" content="https://www.sebastianolaurent.com/" />
     <meta property="og:locale" content="it_IT" />
-    <link rel="canonical" href="https://sebastianolaurent.github.io/resume/" />
+    <link rel="canonical" href="https://www.sebastianolaurent.com/" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="icon" type="image/png" href="./favicon.png" sizes="64x64" />
     <link rel="icon" href="./favicon.ico" sizes="any" />
@@ -57,9 +57,22 @@
         } catch (_) {}
       })();
     </script>
-    <link rel="preload" href="./styles.css" as="style" />
-    <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="./styles.css" /></noscript>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #deecff;
+        color: #0f2238;
+        font-family: Sora, sans-serif;
+      }
+
+      html.dark-mode,
+      html.dark-mode body {
+        background: #02060c;
+        color: #f2f7ff;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" id="skip-to-content" href="#cv-root">Salta al contenuto principale</a>
@@ -272,6 +285,7 @@
     </main>
 
     <footer class="footer-bar">
+      <!-- Author: Sebastiano Laurent | Easter egg: up up down down left right left right b a -->
       <div class="wrapper footer-shell">
         <div class="footer-row footer-row-top">
           <div class="footer-group footer-segment" role="group" aria-label="Appearance">
@@ -287,6 +301,7 @@
         <div class="footer-row footer-row-bottom">
           <div class="footer-meta">
             <span id="footer-copy">Copyright © 2026 Sebastiano Laurent. Tutti i diritti riservati.</span>
+            <span class="footer-egg" title="Easter egg: Konami code" aria-label="Easter egg">↑↑↓↓←→←→BA</span>
           </div>
 
           <div class="footer-group footer-segment" role="group" aria-label="Language">
