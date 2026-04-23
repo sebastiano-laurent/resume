@@ -396,11 +396,7 @@ body.scrolled .brand {
 .profile-flip {
   width: 175px;
   height: 175px;
-  border: 0;
-  padding: 0;
   border-radius: 18px;
-  background: transparent;
-  cursor: pointer;
   perspective: 1000px;
   animation: avatarFloat 7s ease-in-out infinite;
 }
@@ -447,12 +443,6 @@ body.scrolled .brand {
   box-shadow: none;
 }
 
-.profile-back .avatar-img {
-  object-fit: contain;
-  padding: 0.35rem;
-  filter: drop-shadow(0 8px 18px rgba(9, 20, 46, 0.24));
-}
-
 .profile-front {
   border: 0;
 }
@@ -464,8 +454,7 @@ html.dark-mode body .profile-front {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
 }
 
-.profile-flip:hover .profile-flip-inner,
-.profile-flip.is-flipped .profile-flip-inner {
+.profile-flip:hover .profile-flip-inner {
   transform: rotateY(180deg);
 }
 
