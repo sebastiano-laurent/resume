@@ -3,7 +3,7 @@ const cvData = {
     htmlLang: "it",
     ogLocale: "it_IT",
     location: "Milano, Italia",
-    title: "Senior Mobile Developer (iOS/Android/Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
+    title: "Senior Mobile Developer (iOS/Android/Flutter) | Backend Integration (C#/SQL/REST)",
     summary:
       "Senior mobile developer con oltre 9 anni di esperienza (dal 2017) nello sviluppo mobile native e cross-platform. Progressione da Software Developer a Team Leader in Engitel S.p.A., con focus su Flutter, integrazione REST API (C#/SQL), delivery end-to-end, rilascio su Google Play/App Store e contributi UI/UX.",
     strengthsLabel: "Punti di forza",
@@ -163,7 +163,7 @@ const cvData = {
     htmlLang: "en",
     ogLocale: "en_US",
     location: "Milan, Italy",
-    title: "Senior Mobile Developer (iOS/Android/Flutter) | Mobile Team Leader | Backend Integration (C#/SQL/REST)",
+    title: "Senior Mobile Developer (iOS/Android/Flutter) | Backend Integration (C#/SQL/REST)",
     summary:
       "Senior mobile developer with 9+ years of experience (since 2017) across native and cross-platform development. Progressed from Software Developer to Team Leader at Engitel S.p.A., with focus on Flutter engineering, REST API integration (C#/SQL), end-to-end delivery, Google Play/App Store releases, and UI/UX collaboration.",
     strengthsLabel: "Core strengths",
@@ -398,7 +398,10 @@ let topbarScrollThreshold = 120;
 let scrollTicking = false;
 let lastParallaxShift = -1;
 let currentLang = "it";
+let colorFlowTimerId;
+let colorFlowIndex = 0;
 const memoryStore = {};
+const colorFlowIntervalMs = 9000;
 const userAgent = navigator.userAgent || "";
 const isWindowsChrome =
   /Windows/i.test(userAgent) &&
@@ -522,6 +525,9 @@ const colorProfiles = [
     accent: "#006fe0",
     accent2: "#00a997",
     accentSoft: "#cfe6ff",
+    darkAccent: "#72b9ff",
+    darkAccent2: "#5ee9d2",
+    darkAccentSoft: "rgba(114,185,255,0.29)",
     light: ["#ffffff", "#9fd2ff", "#a8f4e6", "#ffd9a6"],
     dark: ["#1a4e82", "#116387", "#0d5b50", "#7a4f17"],
     washLight: ["rgba(86,186,255,0.34)", "rgba(78,238,205,0.30)", "rgba(88,132,255,0.27)", "rgba(255,173,88,0.24)"],
@@ -531,6 +537,9 @@ const colorProfiles = [
     accent: "#6b5bff",
     accent2: "#00bfa0",
     accentSoft: "#e1ddff",
+    darkAccent: "#a99bff",
+    darkAccent2: "#62f0d5",
+    darkAccentSoft: "rgba(169,155,255,0.27)",
     light: ["#fffbff", "#cbb9ff", "#93f2df", "#ffc7de"],
     dark: ["#3a2f7e", "#174f65", "#0c5e4a", "#7b2755"],
     washLight: ["rgba(145,127,255,0.34)", "rgba(78,230,197,0.30)", "rgba(228,130,255,0.24)", "rgba(255,152,191,0.24)"],
@@ -540,6 +549,9 @@ const colorProfiles = [
     accent: "#0079f2",
     accent2: "#ff7a24",
     accentSoft: "#d2e9ff",
+    darkAccent: "#7cc1ff",
+    darkAccent2: "#ffb06a",
+    darkAccentSoft: "rgba(124,193,255,0.28)",
     light: ["#ffffff", "#9bd8ff", "#ffd3ae", "#b9f0ff"],
     dark: ["#18477f", "#784112", "#28597d", "#13606a"],
     washLight: ["rgba(88,168,255,0.34)", "rgba(255,165,99,0.30)", "rgba(109,214,255,0.27)", "rgba(160,223,255,0.24)"],
@@ -549,6 +561,9 @@ const colorProfiles = [
     accent: "#0066db",
     accent2: "#00b25f",
     accentSoft: "#d1e7ff",
+    darkAccent: "#80bdff",
+    darkAccent2: "#74e8a9",
+    darkAccentSoft: "rgba(128,189,255,0.27)",
     light: ["#ffffff", "#a7d0ff", "#c8f8cf", "#b8f2ea"],
     dark: ["#17497e", "#0d6143", "#0d5a56", "#1e6f40"],
     washLight: ["rgba(90,161,255,0.34)", "rgba(88,225,146,0.30)", "rgba(102,232,219,0.27)", "rgba(130,224,170,0.24)"],
@@ -558,6 +573,9 @@ const colorProfiles = [
     accent: "#8b5cf6",
     accent2: "#ec4899",
     accentSoft: "#efe5ff",
+    darkAccent: "#bd9aff",
+    darkAccent2: "#ff8fca",
+    darkAccentSoft: "rgba(189,154,255,0.27)",
     light: ["#fffaff", "#d8c1ff", "#ffc6e6", "#ffd8b2"],
     dark: ["#40246e", "#5f1f4a", "#6d3318", "#2b4a74"],
     washLight: ["rgba(173,118,255,0.36)", "rgba(255,118,198,0.31)", "rgba(255,174,109,0.28)", "rgba(132,180,255,0.24)"],
@@ -567,6 +585,9 @@ const colorProfiles = [
     accent: "#0ea5e9",
     accent2: "#14b8a6",
     accentSoft: "#d7f4ff",
+    darkAccent: "#7dd8ff",
+    darkAccent2: "#73eadb",
+    darkAccentSoft: "rgba(125,216,255,0.27)",
     light: ["#faffff", "#b8ecff", "#bff6ef", "#e0ffd1"],
     dark: ["#124a6a", "#0f5b52", "#255b2d", "#1f3f66"],
     washLight: ["rgba(96,209,255,0.35)", "rgba(95,237,219,0.30)", "rgba(171,245,124,0.24)", "rgba(127,173,255,0.24)"],
@@ -576,6 +597,9 @@ const colorProfiles = [
     accent: "#f97316",
     accent2: "#ef4444",
     accentSoft: "#ffe7d4",
+    darkAccent: "#ffb071",
+    darkAccent2: "#ff8d8d",
+    darkAccentSoft: "rgba(255,176,113,0.25)",
     light: ["#fffdf8", "#ffd2ad", "#ffc4bc", "#ffe8b5"],
     dark: ["#6f3a10", "#6e1f27", "#6a4f19", "#2f4470"],
     washLight: ["rgba(255,163,99,0.36)", "rgba(255,126,126,0.30)", "rgba(255,206,116,0.27)", "rgba(129,171,255,0.22)"],
@@ -585,6 +609,9 @@ const colorProfiles = [
     accent: "#10b981",
     accent2: "#22c55e",
     accentSoft: "#d6f9e8",
+    darkAccent: "#74e3b5",
+    darkAccent2: "#9be784",
+    darkAccentSoft: "rgba(116,227,181,0.25)",
     light: ["#f8fffb", "#bdf7d7", "#c9ffd5", "#d3f9ff"],
     dark: ["#12543b", "#1e5d2e", "#1c5d63", "#20426e"],
     washLight: ["rgba(90,230,166,0.35)", "rgba(129,240,120,0.30)", "rgba(120,226,255,0.25)", "rgba(126,171,255,0.22)"],
@@ -594,6 +621,9 @@ const colorProfiles = [
     accent: "#2563eb",
     accent2: "#f59e0b",
     accentSoft: "#dce8ff",
+    darkAccent: "#8bb7ff",
+    darkAccent2: "#f7c66f",
+    darkAccentSoft: "rgba(139,183,255,0.27)",
     light: ["#fafdff", "#bdd6ff", "#ffe4b8", "#d3ebff"],
     dark: ["#1c427a", "#6c4d12", "#1f5c77", "#2f315f"],
     washLight: ["rgba(103,154,255,0.36)", "rgba(255,191,99,0.30)", "rgba(123,218,255,0.25)", "rgba(166,143,255,0.22)"],
@@ -601,36 +631,17 @@ const colorProfiles = [
   }
 ];
 
-const darkGradientProfiles = [
-  {
-    dark: ["#081a35", "#072844", "#0a2a2a", "#2e1f09"],
-    washDark: ["rgba(76,145,230,0.13)", "rgba(58,172,168,0.11)", "rgba(97,111,222,0.10)", "rgba(208,131,66,0.08)"]
-  },
-  {
-    dark: ["#0d1e3f", "#1f2242", "#1b2948", "#102731"],
-    washDark: ["rgba(104,136,230,0.13)", "rgba(126,108,228,0.11)", "rgba(84,176,238,0.10)", "rgba(88,199,208,0.08)"]
-  },
-  {
-    dark: ["#071f2e", "#083231", "#0d2f23", "#163622"],
-    washDark: ["rgba(66,170,205,0.12)", "rgba(62,186,164,0.11)", "rgba(93,189,121,0.10)", "rgba(122,186,140,0.08)"]
-  },
-  {
-    dark: ["#211633", "#2a1b3e", "#2b1730", "#1f213f"],
-    washDark: ["rgba(145,113,223,0.13)", "rgba(198,104,203,0.11)", "rgba(153,121,230,0.10)", "rgba(112,143,224,0.08)"]
-  },
-  {
-    dark: ["#272016", "#301f12", "#2d2411", "#1b2438"],
-    washDark: ["rgba(210,145,78,0.12)", "rgba(197,118,71,0.11)", "rgba(214,167,89,0.10)", "rgba(93,136,212,0.08)"]
-  }
-];
-
-function applyRandomColorProfile() {
-  const profile = colorProfiles[Math.floor(Math.random() * colorProfiles.length)];
+function applyColorFlowProfile(index) {
+  const normalizedIndex = Math.abs(index) % colorProfiles.length;
+  const profile = colorProfiles[normalizedIndex];
   const rootStyle = document.documentElement.style;
 
   rootStyle.setProperty("--accent", profile.accent);
   rootStyle.setProperty("--accent-2", profile.accent2);
   rootStyle.setProperty("--accent-soft", profile.accentSoft);
+  rootStyle.setProperty("--accent-dark", profile.darkAccent || profile.accent);
+  rootStyle.setProperty("--accent-dark-2", profile.darkAccent2 || profile.accent2);
+  rootStyle.setProperty("--accent-dark-soft", profile.darkAccentSoft || profile.accentSoft);
 
   rootStyle.setProperty("--bg-light-a", profile.light[0]);
   rootStyle.setProperty("--bg-light-b", profile.light[1]);
@@ -641,11 +652,6 @@ function applyRandomColorProfile() {
   rootStyle.setProperty("--wash-light-b", profile.washLight[1]);
   rootStyle.setProperty("--wash-light-c", profile.washLight[2]);
   rootStyle.setProperty("--wash-light-d", profile.washLight[3]);
-}
-
-function applyDarkGradientProfile() {
-  const profile = darkGradientProfiles[Math.floor(Math.random() * darkGradientProfiles.length)];
-  const rootStyle = document.documentElement.style;
 
   rootStyle.setProperty("--bg-dark-a", profile.dark[0]);
   rootStyle.setProperty("--bg-dark-b", profile.dark[1]);
@@ -656,6 +662,38 @@ function applyDarkGradientProfile() {
   rootStyle.setProperty("--wash-dark-b", profile.washDark[1]);
   rootStyle.setProperty("--wash-dark-c", profile.washDark[2]);
   rootStyle.setProperty("--wash-dark-d", profile.washDark[3]);
+}
+
+function stopColorFlow() {
+  if (colorFlowTimerId) {
+    window.clearInterval(colorFlowTimerId);
+    colorFlowTimerId = undefined;
+  }
+}
+
+function shouldRunColorFlow() {
+  return (
+    colorProfiles.length > 1 &&
+    !isMotionReduced() &&
+    !document.documentElement.classList.contains("performance-mode") &&
+    !document.documentElement.classList.contains("high-contrast")
+  );
+}
+
+function startColorFlow() {
+  stopColorFlow();
+
+  if (!shouldRunColorFlow()) {
+    colorFlowIndex = 0;
+    applyColorFlowProfile(colorFlowIndex);
+    return;
+  }
+
+  applyColorFlowProfile(colorFlowIndex);
+  colorFlowTimerId = window.setInterval(() => {
+    colorFlowIndex = (colorFlowIndex + 1) % colorProfiles.length;
+    applyColorFlowProfile(colorFlowIndex);
+  }, colorFlowIntervalMs);
 }
 
 function renderList(root, items) {
@@ -1069,6 +1107,7 @@ elements.a11yTextZoom.addEventListener("input", () => {
 elements.a11yContrast.addEventListener("click", () => {
   const nextEnabled = !document.documentElement.classList.contains("high-contrast");
   setA11yOption("high-contrast", nextEnabled);
+  startColorFlow();
   updateA11yUiText(currentLang);
   const data = cvData[currentLang] || cvData.it;
   announceA11yStatus(data.a11yContrastLabel, nextEnabled);
@@ -1077,6 +1116,7 @@ elements.a11yContrast.addEventListener("click", () => {
 elements.a11yMotion.addEventListener("click", () => {
   const nextEnabled = !document.documentElement.classList.contains("reduce-motion-force");
   setA11yOption("reduce-motion-force", nextEnabled);
+  startColorFlow();
   clearAiTypingTimers();
   initAiTyping();
   initRevealAnimations();
@@ -1109,6 +1149,7 @@ elements.a11yReset.addEventListener("click", () => {
   setA11yOption("reduce-motion-force", false);
   setA11yOption("reading-mode", false);
   setA11yOption("underline-links", false);
+  startColorFlow();
   clearAiTypingTimers();
   initAiTyping();
   initRevealAnimations();
@@ -1202,8 +1243,7 @@ const savedHighContrast = storageGet("cv_high-contrast", "0") === "1";
 const savedReducedMotion = storageGet("cv_reduce-motion-force", "0") === "1";
 const savedReadingMode = storageGet("cv_reading-mode", "0") === "1";
 const savedUnderlineLinks = storageGet("cv_underline-links", "0") === "1";
-applyRandomColorProfile();
-applyDarkGradientProfile();
+applyColorFlowProfile(colorFlowIndex);
 applyThemeMode(savedThemeMode);
 applyTextZoom(savedTextZoom);
 setA11yOption("text-size-lg", false);
@@ -1211,6 +1251,7 @@ setA11yOption("high-contrast", savedHighContrast);
 setA11yOption("reduce-motion-force", savedReducedMotion);
 setA11yOption("reading-mode", savedReadingMode);
 setA11yOption("underline-links", savedUnderlineLinks);
+startColorFlow();
 setA11yPanelOpen(false);
 if (savedLang === "en") {
   renderCv("en");
@@ -1226,6 +1267,7 @@ updateTopbarState();
 initRevealAnimations();
 
 const onReducedMotionChange = () => {
+  startColorFlow();
   clearAiTypingTimers();
   initAiTyping();
   initRevealAnimations();

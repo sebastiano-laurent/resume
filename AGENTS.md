@@ -20,7 +20,7 @@ npm run bump:asset-version && npm run build && git add -A && git commit -m "<typ
 
 Quando l'utente scrive solo `git`, esegui automaticamente il flusso commit standard:
 
-1. `npm run bump:asset-version`
+1. `npm run bump:asset-version` per aggiornare i query param di `styles.css` e `script.js`
 2. `npm run build`
 3. `git add -A`
 4. `git commit -m "<type>: <short description>"` seguendo le convenzioni sopra
