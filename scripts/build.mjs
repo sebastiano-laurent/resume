@@ -58,6 +58,7 @@ async function build() {
   ]);
 
   await copyDirRecursive(path.join(rootDir, "assets"), path.join(distDir, "assets"), (filePath) => !filePath.endsWith(".ttf"));
+  await copyDirRecursive(path.join(rootDir, "pdf"), path.join(distDir, "pdf"));
 
   await Promise.all([
     minifyAsset("styles.css", "css"),
